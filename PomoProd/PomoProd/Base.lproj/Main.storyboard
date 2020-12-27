@@ -15,8 +15,43 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHM-vb-Tiv" userLabel="Top BG Gradient">
+                                <rect key="frame" x="0.0" y="88" width="340" height="263"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="8oi-Dh-UfO"/>
+                                    <constraint firstAttribute="height" constant="263" id="xHl-df-cd3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wz5-aV-aFl" userLabel="Bottom BG Gradient">
+                                <rect key="frame" x="0.0" y="599" width="340" height="297"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="oB0-tI-1Nn"/>
+                                    <constraint firstAttribute="height" constant="297" id="ti5-WN-cMb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1x1-5v-5Cr">
+                                <rect key="frame" x="340" y="88" width="74" height="808"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="Hvp-tG-6GA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1x1-5v-5Cr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="199-L2-Mf3"/>
+                            <constraint firstItem="1x1-5v-5Cr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1q3-Ga-jin"/>
+                            <constraint firstAttribute="bottom" secondItem="wz5-aV-aFl" secondAttribute="bottom" id="NJc-c8-1Pp"/>
+                            <constraint firstItem="wz5-aV-aFl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NMw-J5-kgV"/>
+                            <constraint firstItem="XHM-vb-Tiv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XJ3-Jj-tOn"/>
+                            <constraint firstItem="XHM-vb-Tiv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="epq-rQ-mYB"/>
+                            <constraint firstAttribute="bottom" secondItem="1x1-5v-5Cr" secondAttribute="bottom" id="mjL-x4-FBr"/>
+                            <constraint firstItem="wz5-aV-aFl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qU4-Ze-2CA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lqu-gm-weL"/>
                 </viewController>
@@ -76,6 +111,15 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
