@@ -16,25 +16,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHM-vb-Tiv" userLabel="Top BG Gradient">
-                                <rect key="frame" x="0.0" y="88" width="340" height="263"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHM-vb-Tiv" userLabel="Top BG Gradient" customClass="TopGradientView" customModule="PomoProd" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="263"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="340" id="8oi-Dh-UfO"/>
                                     <constraint firstAttribute="height" constant="263" id="xHl-df-cd3"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wz5-aV-aFl" userLabel="Bottom BG Gradient">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wz5-aV-aFl" userLabel="Bottom BG Gradient" customClass="BottomGradientView" customModule="PomoProd" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="599" width="340" height="297"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pomodoro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-V5-h02" userLabel="PomodoroNameLabel">
+                                        <rect key="frame" x="0.0" y="158" width="340" height="59"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="59" id="6lg-he-9uE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" red="0.047058823530000002" green="0.73333333329999995" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstItem="eIR-V5-h02" firstAttribute="leading" secondItem="wz5-aV-aFl" secondAttribute="leading" id="EFZ-I8-sy9"/>
+                                    <constraint firstAttribute="trailing" secondItem="eIR-V5-h02" secondAttribute="trailing" id="NBT-v5-iZN"/>
                                     <constraint firstAttribute="width" constant="340" id="oB0-tI-1Nn"/>
+                                    <constraint firstAttribute="bottom" secondItem="eIR-V5-h02" secondAttribute="bottom" constant="80" id="rqz-fD-Yh4"/>
                                     <constraint firstAttribute="height" constant="297" id="ti5-WN-cMb"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1x1-5v-5Cr">
-                                <rect key="frame" x="340" y="88" width="74" height="808"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL3-A2-gN9" userLabel="MinuteTimeLabel">
+                                <rect key="frame" x="19" y="293" width="290" height="303"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="260"/>
+                                <color key="textColor" red="0.050980392159999999" green="1" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1x1-5v-5Cr" userLabel="SideBar">
+                                <rect key="frame" x="340" y="0.0" width="74" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYX-1j-5FW" userLabel="SecondTimeLabel">
+                                        <rect key="frame" x="15" y="435" width="44" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="39"/>
+                                        <color key="textColor" red="0.050980392159999999" green="1" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="Hvp-tG-6GA"/>
                                 </constraints>
@@ -43,13 +72,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="1x1-5v-5Cr" secondAttribute="bottom" id="0Ev-mP-PL3"/>
                             <constraint firstItem="1x1-5v-5Cr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="199-L2-Mf3"/>
-                            <constraint firstItem="1x1-5v-5Cr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1q3-Ga-jin"/>
                             <constraint firstAttribute="bottom" secondItem="wz5-aV-aFl" secondAttribute="bottom" id="NJc-c8-1Pp"/>
                             <constraint firstItem="wz5-aV-aFl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NMw-J5-kgV"/>
+                            <constraint firstItem="1x1-5v-5Cr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SAI-B8-UsF"/>
+                            <constraint firstItem="XHM-vb-Tiv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TK9-w8-Ca4"/>
                             <constraint firstItem="XHM-vb-Tiv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XJ3-Jj-tOn"/>
-                            <constraint firstItem="XHM-vb-Tiv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="epq-rQ-mYB"/>
-                            <constraint firstAttribute="bottom" secondItem="1x1-5v-5Cr" secondAttribute="bottom" id="mjL-x4-FBr"/>
                             <constraint firstItem="wz5-aV-aFl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qU4-Ze-2CA"/>
                         </constraints>
                     </view>
@@ -111,15 +140,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

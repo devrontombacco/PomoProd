@@ -11,7 +11,7 @@ class PomodoroVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
 
 
