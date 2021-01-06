@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,6 +63,27 @@
                                         <color key="textColor" red="0.050980392159999999" green="1" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vg-w3-pvD">
+                                        <rect key="frame" x="23" y="774" width="36" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="arrowtriangle.right.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-j8-iQa">
+                                        <rect key="frame" x="23" y="67" width="36" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="gearshape.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="VAc-Pf-sQe" kind="show" id="Vtx-RS-a0H"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -82,7 +104,9 @@
                             <constraint firstItem="wz5-aV-aFl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qU4-Ze-2CA"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="lqu-gm-weL"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,13 +119,140 @@
                     <view key="view" contentMode="scaleToFill" id="0k5-F7-ZFE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-Gi-uJX" userLabel="Instructions Button">
+                                <rect key="frame" x="38.5" y="138" width="337" height="72"/>
+                                <color key="backgroundColor" red="0.59607843137254901" green="0.70196078431372544" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="LcC-aj-7HR"/>
+                                    <constraint firstAttribute="width" constant="337" id="uGu-V0-1y0"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Instructions"/>
+                                <connections>
+                                    <action selector="InstructionsButton:" destination="VAc-Pf-sQe" eventType="touchUpInside" id="2rp-8N-sKl"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuX-zh-ylS" userLabel="Pomodoro Time View">
+                                <rect key="frame" x="38.5" y="235" width="337" height="77"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ro-qY-ygw">
+                                        <rect key="frame" x="241" y="21" width="78" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pomodoro Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3W-lx-pEr">
+                                        <rect key="frame" x="22" y="28" width="121" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="5bq-9U-TLv"/>
+                                    <constraint firstAttribute="width" constant="337" id="LWW-Rw-5DD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTd-hu-4PK" userLabel="Short Break Time View">
+                                <rect key="frame" x="38.5" y="337" width="337" height="77"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WS6-LK-L6v">
+                                        <rect key="frame" x="241" y="21" width="78" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short Break Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wa9-bg-HFf">
+                                        <rect key="frame" x="22" y="28" width="132" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="Mv8-We-PUn"/>
+                                    <constraint firstAttribute="width" constant="337" id="rZp-H4-Qkp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifq-OY-VmJ" userLabel="Long Break Time View">
+                                <rect key="frame" x="38.5" y="439" width="337" height="77"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CTd-dT-p45">
+                                        <rect key="frame" x="243" y="21" width="78" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Long Break Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8S9-tB-YgN">
+                                        <rect key="frame" x="22" y="28" width="128" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="V4j-kr-YaB"/>
+                                    <constraint firstAttribute="width" constant="337" id="e29-WO-BcW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gP-Rk-YZn" userLabel="Pomodoros In Set View">
+                                <rect key="frame" x="38.5" y="541" width="337" height="77"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Feb-q4-810">
+                                        <rect key="frame" x="243" y="21" width="78" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pomodoros In Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS2-w3-UZ0">
+                                        <rect key="frame" x="22" y="28" width="135" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="ngE-xv-NuL"/>
+                                    <constraint firstAttribute="width" constant="337" id="oKH-0t-AO2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="RkQ-rc-Zb6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.85490196078431369" green="0.94117647058823528" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5gP-Rk-YZn" firstAttribute="centerX" secondItem="0k5-F7-ZFE" secondAttribute="centerX" id="2OF-WB-Z94"/>
+                            <constraint firstItem="CuX-zh-ylS" firstAttribute="top" secondItem="Qk7-Gi-uJX" secondAttribute="bottom" constant="25" id="2nG-1S-Q3N"/>
+                            <constraint firstItem="DTd-hu-4PK" firstAttribute="top" secondItem="CuX-zh-ylS" secondAttribute="bottom" constant="25" id="7cd-hE-MHc"/>
+                            <constraint firstItem="Ifq-OY-VmJ" firstAttribute="centerX" secondItem="0k5-F7-ZFE" secondAttribute="centerX" id="82d-r4-yQp"/>
+                            <constraint firstItem="Qk7-Gi-uJX" firstAttribute="top" secondItem="RkQ-rc-Zb6" secondAttribute="top" constant="50" id="IYg-9l-b3F"/>
+                            <constraint firstItem="DTd-hu-4PK" firstAttribute="centerX" secondItem="0k5-F7-ZFE" secondAttribute="centerX" id="Mjc-vs-l4k"/>
+                            <constraint firstItem="Ifq-OY-VmJ" firstAttribute="top" secondItem="DTd-hu-4PK" secondAttribute="bottom" constant="25" id="RWw-Sx-OxB"/>
+                            <constraint firstItem="5gP-Rk-YZn" firstAttribute="top" secondItem="Ifq-OY-VmJ" secondAttribute="bottom" constant="25" id="Z0O-Ps-CdZ"/>
+                            <constraint firstItem="Qk7-Gi-uJX" firstAttribute="centerX" secondItem="0k5-F7-ZFE" secondAttribute="centerX" id="dXI-F7-ZD7"/>
+                            <constraint firstItem="CuX-zh-ylS" firstAttribute="centerX" secondItem="0k5-F7-ZFE" secondAttribute="centerX" id="pBu-Lw-rOT"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="q07-3T-QMQ"/>
+                    <connections>
+                        <outlet property="InstructionsButtonOutlet" destination="Qk7-Gi-uJX" id="kCV-Nh-VpQ"/>
+                        <outlet property="LongBreakTimeView" destination="Ifq-OY-VmJ" id="VL6-Qp-zet"/>
+                        <outlet property="PomodoroTimeView" destination="CuX-zh-ylS" id="BUd-XK-Fvz"/>
+                        <outlet property="PomodorosInSetView" destination="5gP-Rk-YZn" id="A4Q-qK-tzh"/>
+                        <outlet property="ShortBreakTimeView" destination="DTd-hu-4PK" id="Aya-nO-vkA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVz-y3-Jci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910.144927536232" y="67.633928571428569"/>
+            <point key="canvasLocation" x="1708.6956521739132" y="67.633928571428569"/>
         </scene>
         <!--InfoVC-->
         <scene sceneID="TZD-Ea-Wf8">
@@ -126,6 +277,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jvA-0g-BoL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -138,6 +290,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
