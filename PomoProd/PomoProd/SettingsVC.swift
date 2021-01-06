@@ -59,4 +59,9 @@ class SettingsVC: UIViewController {
         PomodorosInSetView.layer.shadowOffset = .init(width: 10, height: 10)
         PomodorosInSetView.layer.shadowRadius = 4
     }
+    
+    func configureInstructionsButton(){
+        InstructionsButtonOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+    }
+    
 }
