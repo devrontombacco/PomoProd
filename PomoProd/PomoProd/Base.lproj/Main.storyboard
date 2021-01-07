@@ -269,13 +269,127 @@
                     <view key="view" contentMode="scaleToFill" id="leh-kz-Mwk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFR-qb-ZcP" userLabel="InstructionsContainerView">
+                                <rect key="frame" x="20" y="20" width="374" height="808"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How does it Work?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOJ-Ob-aWr">
+                                        <rect key="frame" x="98" y="40" width="178" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-ja-lhW">
+                                        <rect key="frame" x="85" y="116.5" width="204" height="136"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odq-xK-6Z5">
+                                                <rect key="frame" x="8" y="24" width="188" height="87"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <string key="text">A pomodoro is a unit of time, typically 25 minutes, that you
+work for without any breaks</string>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="136" id="DUG-Dk-lMg"/>
+                                            <constraint firstAttribute="width" constant="204" id="soz-cO-roQ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U94-82-6mb">
+                                        <rect key="frame" x="85" y="277.5" width="204" height="136"/>
+                                        <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="204" id="6Vt-Ub-HBX"/>
+                                            <constraint firstAttribute="height" constant="136" id="M5y-U4-RhU"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="204" id="rmG-5d-5YU"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="136" id="shD-oW-tc5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gq4-Cw-sQq">
+                                        <rect key="frame" x="85" y="438.5" width="204" height="136"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="After a series of pomodoros (usually 3 or 4), you can then take a long break for about 25 minutes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdN-Nj-wqJ">
+                                                <rect key="frame" x="8" y="16" width="188" height="105"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="204" id="WEJ-PX-Zkg"/>
+                                            <constraint firstAttribute="height" constant="136" id="Z1U-hf-V0t"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="136" id="fkl-1t-DQX"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="204" id="kdv-hK-xHx"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4k-l6-o9u">
+                                        <rect key="frame" x="85" y="599.5" width="204" height="136"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="These short bursts of focus  prove to be much more  productive in the long run!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-O4-TYB">
+                                                <rect key="frame" x="8" y="15" width="188" height="104"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="204" id="0QM-Dl-3DL"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="136" id="278-yu-h1o"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="204" id="OHM-S7-xaf"/>
+                                            <constraint firstAttribute="height" constant="136" id="nxq-Kp-7zB"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Between each pomodoro you may take a short break (it is recommended not to do longer than 5 minutes)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nki-cc-Sh0">
+                                        <rect key="frame" x="98" y="303" width="178" height="88"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85490196080000003" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gq4-Cw-sQq" firstAttribute="centerX" secondItem="MFR-qb-ZcP" secondAttribute="centerX" id="2jB-dm-OEZ"/>
+                                    <constraint firstItem="U94-82-6mb" firstAttribute="centerX" secondItem="MFR-qb-ZcP" secondAttribute="centerX" id="84e-Vi-wqy"/>
+                                    <constraint firstItem="E4k-l6-o9u" firstAttribute="top" secondItem="gq4-Cw-sQq" secondAttribute="bottom" constant="25" id="9y3-sj-plF"/>
+                                    <constraint firstItem="gq4-Cw-sQq" firstAttribute="top" secondItem="U94-82-6mb" secondAttribute="bottom" constant="25" id="QdG-Dw-mjO"/>
+                                    <constraint firstItem="wQX-ja-lhW" firstAttribute="centerX" secondItem="MFR-qb-ZcP" secondAttribute="centerX" id="RXy-6q-f1I"/>
+                                    <constraint firstItem="wQX-ja-lhW" firstAttribute="top" secondItem="nOJ-Ob-aWr" secondAttribute="bottom" constant="50" id="XR3-NN-jgC"/>
+                                    <constraint firstItem="nOJ-Ob-aWr" firstAttribute="top" secondItem="MFR-qb-ZcP" secondAttribute="top" constant="40" id="b8u-ht-pmS"/>
+                                    <constraint firstItem="E4k-l6-o9u" firstAttribute="centerX" secondItem="MFR-qb-ZcP" secondAttribute="centerX" id="lcJ-Yb-zVm"/>
+                                    <constraint firstItem="nOJ-Ob-aWr" firstAttribute="centerX" secondItem="MFR-qb-ZcP" secondAttribute="centerX" id="skW-vM-x8F"/>
+                                    <constraint firstItem="U94-82-6mb" firstAttribute="top" secondItem="wQX-ja-lhW" secondAttribute="bottom" constant="25" id="twM-rk-SCJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8oM-ME-Jib"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="MFR-qb-ZcP" firstAttribute="leading" secondItem="8oM-ME-Jib" secondAttribute="leading" constant="20" id="A8F-yQ-i9N" userLabel="InstructionsContainerView.leading = Safe Area.leading + 30"/>
+                            <constraint firstItem="MFR-qb-ZcP" firstAttribute="bottom" secondItem="8oM-ME-Jib" secondAttribute="bottom" constant="20" id="KIX-ym-Rgj" userLabel="InstructionsContainerView.bottom = Safe Area.bottom + 50"/>
+                            <constraint firstItem="MFR-qb-ZcP" firstAttribute="top" secondItem="8oM-ME-Jib" secondAttribute="top" constant="20" id="Xs6-yU-FPe" userLabel="InstructionsContainerView.top = Safe Area.top + 30"/>
+                            <constraint firstItem="8oM-ME-Jib" firstAttribute="trailing" secondItem="MFR-qb-ZcP" secondAttribute="trailing" constant="20" id="nnL-F8-kAv" userLabel="Safe Area.trailing = InstructionsContainerView.trailing + 30"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="instructionsContainerView" destination="MFR-qb-ZcP" id="EKE-sH-dCR"/>
+                        <outlet property="instructionsTitleLabel" destination="nOJ-Ob-aWr" id="65d-JD-O1d"/>
+                        <outlet property="longBreakPanel" destination="gq4-Cw-sQq" id="GCt-X8-gtp"/>
+                        <outlet property="pomodoroPanel" destination="wQX-ja-lhW" id="iOv-J5-Q7k"/>
+                        <outlet property="productivityPanel" destination="E4k-l6-o9u" id="EwA-6H-awQ"/>
+                        <outlet property="shortBreakPanel" destination="U94-82-6mb" id="tT0-RN-yKu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBY-we-4BV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2428" y="68"/>
+            <point key="canvasLocation" x="2437.68115942029" y="67.633928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xco-v8-rfS">
