@@ -133,6 +133,7 @@
                                 <state key="normal" title="Instructions"/>
                                 <connections>
                                     <action selector="InstructionsButton:" destination="VAc-Pf-sQe" eventType="touchUpInside" id="2rp-8N-sKl"/>
+                                    <segue destination="KNx-Uh-CH1" kind="presentation" id="8yH-c9-2bv"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuX-zh-ylS" userLabel="Pomodoro Time View">
@@ -266,7 +267,7 @@
             <objects>
                 <viewController id="KNx-Uh-CH1" customClass="InfoVC" customModule="PomoProd" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="leh-kz-Mwk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8oM-ME-Jib"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -274,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBY-we-4BV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2850.7246376811595" y="67.633928571428569"/>
+            <point key="canvasLocation" x="2428" y="68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xco-v8-rfS">
