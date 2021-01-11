@@ -282,11 +282,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-ja-lhW">
                                         <rect key="frame" x="85" y="116.5" width="204" height="136"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odq-xK-6Z5">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odq-xK-6Z5">
                                                 <rect key="frame" x="8" y="24" width="188" height="87"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <string key="text">A pomodoro is a unit of time, typically 25 minutes, that you
-work for without any breaks</string>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -382,9 +380,13 @@ work for without any breaks</string>
                         <outlet property="instructionsContainerView" destination="MFR-qb-ZcP" id="EKE-sH-dCR"/>
                         <outlet property="instructionsTitleLabel" destination="nOJ-Ob-aWr" id="65d-JD-O1d"/>
                         <outlet property="longBreakPanel" destination="gq4-Cw-sQq" id="GCt-X8-gtp"/>
+                        <outlet property="longBreakPanelLabel" destination="gdN-Nj-wqJ" id="2ff-4V-xVs"/>
+                        <outlet property="pomodoPanelLabel" destination="odq-xK-6Z5" id="ZOn-n3-Iae"/>
                         <outlet property="pomodoroPanel" destination="wQX-ja-lhW" id="iOv-J5-Q7k"/>
                         <outlet property="productivityPanel" destination="E4k-l6-o9u" id="EwA-6H-awQ"/>
+                        <outlet property="productivityPanelLabel" destination="ZFy-O4-TYB" id="QTH-uF-8Gu"/>
                         <outlet property="shortBreakPanel" destination="U94-82-6mb" id="tT0-RN-yKu"/>
+                        <outlet property="shortBreakPanelLabel" destination="Nki-cc-Sh0" id="W6L-S9-nrL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBY-we-4BV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
