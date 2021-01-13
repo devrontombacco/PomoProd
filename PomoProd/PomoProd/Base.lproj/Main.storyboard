@@ -132,7 +132,7 @@
                                 <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Instructions"/>
                                 <connections>
-                                    <action selector="InstructionsButton:" destination="VAc-Pf-sQe" eventType="touchUpInside" id="2rp-8N-sKl"/>
+                                    <action selector="InstructionsButton:" destination="VAc-Pf-sQe" eventType="touchUpInside" id="hWY-bj-RQ5"/>
                                     <segue destination="KNx-Uh-CH1" kind="presentation" id="8yH-c9-2bv"/>
                                 </connections>
                             </button>
@@ -213,6 +213,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="lastTextFieldTooLow:" destination="VAc-Pf-sQe" eventType="touchUpInside" id="ttC-sH-oUL"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pomodoros In Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS2-w3-UZ0">
                                         <rect key="frame" x="22" y="28" width="166" height="24"/>
@@ -251,11 +254,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="q07-3T-QMQ"/>
                     <connections>
-                        <outlet property="InstructionsButtonOutlet" destination="Qk7-Gi-uJX" id="kCV-Nh-VpQ"/>
+                        <outlet property="InstructionsButtonOutlet" destination="Qk7-Gi-uJX" id="J2d-Jk-oHw"/>
                         <outlet property="LongBreakTimeView" destination="Ifq-OY-VmJ" id="VL6-Qp-zet"/>
                         <outlet property="PomodoroTimeView" destination="CuX-zh-ylS" id="BUd-XK-Fvz"/>
                         <outlet property="PomodorosInSetView" destination="5gP-Rk-YZn" id="A4Q-qK-tzh"/>
                         <outlet property="ShortBreakTimeView" destination="DTd-hu-4PK" id="Aya-nO-vkA"/>
+                        <outlet property="longBreakTextField" destination="CTd-dT-p45" id="p4j-NO-T8p"/>
+                        <outlet property="pomodoroTimeTextField" destination="8ro-qY-ygw" id="et4-ZG-aGu"/>
+                        <outlet property="pomodorosInSetTextField" destination="Feb-q4-810" id="umF-Qi-ST7"/>
+                        <outlet property="shortBreakTextField" destination="WS6-LK-L6v" id="o0z-H5-QDS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVz-y3-Jci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
