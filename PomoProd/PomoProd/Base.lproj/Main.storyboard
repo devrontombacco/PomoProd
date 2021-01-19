@@ -72,6 +72,9 @@
                                             <imageReference key="image" image="arrowtriangle.right.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28"/>
                                         </state>
+                                        <connections>
+                                            <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLA-CN-Qbi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-j8-iQa">
                                         <rect key="frame" x="23" y="67" width="36" height="35"/>
@@ -107,6 +110,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lqu-gm-weL"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="minutesLabel" destination="HL3-A2-gN9" id="SYR-gW-GNf"/>
+                        <outlet property="playButtonLabel" destination="6vg-w3-pvD" id="ILo-3K-fRO"/>
+                        <outlet property="secondsLabel" destination="OYX-1j-5FW" id="54S-4B-oJp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
