@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol PomodoroTimeDelegate {
+    func userSelectedTime(time: String)
+}
+
 class SettingsVC: UIViewController {
     
-    // Button
+    // Outlets
+    @IBOutlet weak var backBarButtonOutlet: UINavigationItem!
+    
     @IBOutlet weak var InstructionsButtonOutlet: UIButton!
     
     // Views
@@ -24,8 +30,12 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var longBreakTextField: UITextField!
     @IBOutlet weak var pomodorosInSetTextField: UITextField!
     
+    // Variables
     var activeTextField: UITextField!
     
+    // Delegates
+    var pomodoroTimeDelegate:PomodoroTimeDelegate!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,7 +68,7 @@ class SettingsVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
     }
-    
+
     @IBAction func InstructionsButton(_ sender: UIButton) {
         // segue code here
     }
@@ -110,6 +120,7 @@ extension SettingsVC: UITextFieldDelegate {
         
         switch textField {
         case pomodoroTimeTextField:
+            getTextFieldValue()
             pomodoroTimeTextField.resignFirstResponder()
         case shortBreakTextField:
             shortBreakTextField.resignFirstResponder()
@@ -119,6 +130,16 @@ extension SettingsVC: UITextFieldDelegate {
             pomodorosInSetTextField.resignFirstResponder()
         }
         return true
+    }
+    
+    func getTextFieldValue(){
+        if let passedTime = pomodoroTimeTextField.text {
+            print("The value in the textfield is \(passedTime) of type \(type(of: passedTime))")
+            pomodoroTimeDelegate?.userSelectedTime(time: passedTime)
+        } else {
+            print("There is an error. Selecting 25 mins default")
+            pomodoroTimeDelegate.userSelectedTime(time: "25")
+        }
     }
     
     // Raise content when keyboard is in view

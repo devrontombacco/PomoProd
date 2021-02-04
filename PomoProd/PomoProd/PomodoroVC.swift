@@ -9,6 +9,8 @@ import UIKit
 
 class PomodoroVC: UIViewController {
 
+    var testPass: String = ""
+    
     var mins: Int = 0
     var secs: Int = 6
     
@@ -26,10 +28,12 @@ class PomodoroVC: UIViewController {
 
     @IBAction func playButtonTapped(_ sender: UIButton) {
         startCountDown()
+        
     }
     
     func startCountDown(){
         print("Play button pressed. Countdown started")
+        SettingsVC().pomodoroTimeDelegate = self
         myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
     }
     
@@ -63,58 +67,17 @@ class PomodoroVC: UIViewController {
 
 }
 
+extension PomodoroVC: PomodoroTimeDelegate {
+    
+    func userSelectedTime(time: String) {
+        testPass = time
+        print("the value of testPass is \(testPass)")
+    }
+    
+}
 
 /*
- 
- 
- timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
-     
-     while self.mins > 0 && self.secs > 0 {
-         // decrement seconds by one
-         if self.secs > 0 {
-             self.secs = self.secs - 1
-         }
-         // when secs get to 0, decrement mins
-         else if self.secs == 0 {
-             self.mins = self.mins - 1
-             self.secs = 59
-         }
-         // when mins & secs get to 0, notify me in console
-         // && self.secs == 0
-         else if self.mins == 0 && self.secs == 0{
-             // self.timer.invalidate()
-             break
-         }
-         print("Countdown finished ")
-         // update label
-         self.updateLabel()
-     }
- })
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- SWITCH STATEMENT
- ------------------
- let countDownSeconds = self.secs
- let countDownMinutes = self.mins
- switch (countDownSeconds, countDownMinutes) {
-     case (1...59, 1...59):
-         self.secs = self.secs - 1
-     case (0, 1...59):
-         self.mins = self.mins - 1
-         self.secs = 59
-     case (0, 0):
-         break
-     default:
-         break
-     }
- self.updateLabel()
- 
+ let secondVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+         secondVC.selectionDelegate = self
+         present(secondVC, animated: true, completion: nil)
  */
