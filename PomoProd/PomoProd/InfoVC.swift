@@ -9,25 +9,21 @@ import UIKit
 
 class InfoVC: UIViewController {
 
-    // Container
+    // MARK:-- Views
     @IBOutlet weak var instructionsContainerView: UIView!
-    
-    // Title
-    @IBOutlet weak var instructionsTitleLabel: UILabel!
-    
-    // Panels
     @IBOutlet weak var pomodoroPanel: UIView!
     @IBOutlet weak var shortBreakPanel: UIView!
     @IBOutlet weak var longBreakPanel: UIView!
     @IBOutlet weak var productivityPanel: UIView!
-    
-    // Labels
+
+    // MARK:-- Labels
+    @IBOutlet weak var instructionsTitleLabel: UILabel!
     @IBOutlet weak var pomodoPanelLabel: UILabel!
     @IBOutlet weak var shortBreakPanelLabel: UILabel!
     @IBOutlet weak var longBreakPanelLabel: UILabel!
     @IBOutlet weak var productivityPanelLabel: UILabel!
     
-    
+    // MARK:-- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +37,7 @@ class InfoVC: UIViewController {
         configurePanelTextColors()
     }
     
+    // MARK:-- Configuration Methods
     func configureShadows(){
         
         pomodoroPanel.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor

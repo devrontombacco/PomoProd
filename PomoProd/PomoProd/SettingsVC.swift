@@ -13,29 +13,30 @@ protocol PomodoroTimeDelegate {
 
 class SettingsVC: UIViewController {
     
-    // Outlets
-    @IBOutlet weak var backBarButtonOutlet: UINavigationItem!
+    // MARK:-- Variables
+    var activeTextField: UITextField!
     
+    // MARK:-- Delegates
+    var pomodoroTimeDelegate:PomodoroTimeDelegate!
+    
+    // MARK:-- IBOutlets - Buttons
     @IBOutlet weak var InstructionsButtonOutlet: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
-    // Views
+    // MARK:-- IBOutlets - Views
     @IBOutlet weak var PomodoroTimeView: UIView!
     @IBOutlet weak var ShortBreakTimeView: UIView!
     @IBOutlet weak var LongBreakTimeView: UIView!
     @IBOutlet weak var PomodorosInSetView: UIView!
     
-    // TextFields
+    // MARK:-- IBOutlets - TextFields
     @IBOutlet weak var pomodoroTimeTextField: UITextField!
     @IBOutlet weak var shortBreakTextField: UITextField!
     @IBOutlet weak var longBreakTextField: UITextField!
     @IBOutlet weak var pomodorosInSetTextField: UITextField!
     
-    // Variables
-    var activeTextField: UITextField!
     
-    // Delegates
-    var pomodoroTimeDelegate:PomodoroTimeDelegate!
-        
+    // MARK:-- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,10 +70,22 @@ class SettingsVC: UIViewController {
 
     }
 
+    // MARK:-- @IBActions
     @IBAction func InstructionsButton(_ sender: UIButton) {
-        // segue code here
+        
     }
     
+    @IBAction func doneButtonTapped(_ sender: UIButton) {
+        
+        let textFieldString = pomodoroTimeTextField.text
+            if let _ = textFieldString {
+                pomodoroTimeDelegate?.userSelectedTime(time: pomodoroTimeTextField.text!)
+                }
+            pomodoroTimeTextField.resignFirstResponder()
+            dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK:-- Methods
     func configureShadows(){
         
         InstructionsButtonOutlet.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
@@ -107,9 +120,8 @@ class SettingsVC: UIViewController {
     
 }
 
-extension SettingsVC: UITextFieldDelegate {
-        
     // MARK:-- TextField Methods
+extension SettingsVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField

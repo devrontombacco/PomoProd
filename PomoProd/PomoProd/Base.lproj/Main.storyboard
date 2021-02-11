@@ -255,6 +255,9 @@
                                 <state key="normal" title="DONE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="VAc-Pf-sQe" eventType="touchUpInside" id="nma-g2-qEK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RkQ-rc-Zb6"/>
@@ -281,7 +284,7 @@
                         <outlet property="PomodoroTimeView" destination="CuX-zh-ylS" id="BUd-XK-Fvz"/>
                         <outlet property="PomodorosInSetView" destination="5gP-Rk-YZn" id="A4Q-qK-tzh"/>
                         <outlet property="ShortBreakTimeView" destination="DTd-hu-4PK" id="Aya-nO-vkA"/>
-                        <outlet property="backBarButtonOutlet" destination="q07-3T-QMQ" id="zcv-JI-yXr"/>
+                        <outlet property="doneButton" destination="RIE-yS-s9c" id="3Yg-8p-Tsc"/>
                         <outlet property="longBreakTextField" destination="CTd-dT-p45" id="p4j-NO-T8p"/>
                         <outlet property="pomodoroTimeTextField" destination="8ro-qY-ygw" id="et4-ZG-aGu"/>
                         <outlet property="pomodorosInSetTextField" destination="Feb-q4-810" id="umF-Qi-ST7"/>
