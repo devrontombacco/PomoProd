@@ -164,7 +164,7 @@ extension SettingsVC: UITextFieldDelegate {
             }
         }
     }
-    
+    // Lower content when keyboard is dismissed
     @objc func keyboardWillHide(notification: NSNotification) {
         if activeTextField == pomodorosInSetTextField {
             if self.view.frame.origin.y != 0 {
