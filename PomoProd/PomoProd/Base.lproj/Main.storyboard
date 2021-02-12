@@ -84,7 +84,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
                                         <connections>
-                                            <segue destination="VAc-Pf-sQe" kind="presentation" identifier="" modalPresentationStyle="fullScreen" id="Vtx-RS-a0H"/>
+                                            <segue destination="VAc-Pf-sQe" kind="presentation" identifier="PresentSettingsVCSegue" modalPresentationStyle="fullScreen" id="Vtx-RS-a0H"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -147,7 +147,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuX-zh-ylS" userLabel="Pomodoro Time View">
                                 <rect key="frame" x="38.5" y="191" width="337" height="77"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ro-qY-ygw">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="25" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ro-qY-ygw">
                                         <rect key="frame" x="241" y="21" width="78" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

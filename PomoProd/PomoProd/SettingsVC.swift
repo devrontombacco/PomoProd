@@ -77,9 +77,8 @@ class SettingsVC: UIViewController {
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
         
-        let textFieldString = pomodoroTimeTextField.text
-            if let _ = textFieldString {
-                pomodoroTimeDelegate?.userSelectedTime(time: pomodoroTimeTextField.text!)
+        if let textFieldString = pomodoroTimeTextField.text {
+                    pomodoroTimeDelegate?.userSelectedTime(time: textFieldString)
                 }
             pomodoroTimeTextField.resignFirstResponder()
             dismiss(animated: true, completion: nil)

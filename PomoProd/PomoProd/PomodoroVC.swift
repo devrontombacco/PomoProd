@@ -11,18 +11,19 @@ class PomodoroVC: UIViewController {
     
     // MARK:-- Variables
     var mins: Int = 0
-    var secs: Int = 6
-    var pomodoroTimer = Timer()
+    var secs: Int = 3
+    var pomodoroTimer: Timer?
     
     // MARK:-- Outlets
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var playButtonLabel: UIButton!
     
-    // MARK:-- viewWillAppear
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        SettingsVC().pomodoroTimeDelegate = self
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PresentSettingsVCSegue", let vc = segue.destination as? SettingsVC {
+            vc.pomodoroTimeDelegate = self
+        }
     }
 
     // MARK:-- IBActions
@@ -38,26 +39,25 @@ class PomodoroVC: UIViewController {
     
     @objc func countDown(){ 
         
-        var minutes = mins
-        var seconds = secs
-        
-        // decrement seconds by one
-        if seconds > 0 {
-            self.secs = self.secs - 1
-        }
-        // when secs get to 0, decrement mins
-        else if seconds == 0 {
-            minutes = minutes - 1
-            seconds = 59
-        }
-        // Stop timer when count down has finished
-        else if minutes == 0 && seconds == 0 {
-            pomodoroTimer.invalidate()
+        if secs == 0 && mins == 0 {
+            
+            // Stop timer when count down has finished
+            pomodoroTimer?.invalidate()
             print("Timer invalidated")
-        }
-        self.updateLabel()
-        print("\(mins) \(secs)")
-    }
+            }
+            else if secs > 0 {
+                // decrement seconds by one
+                secs = secs - 1
+            }
+            else if secs == 0 {
+                // when secs get to 0, decrement mins
+                mins = mins - 1
+                secs = 59
+            }
+            
+            updateLabel()
+            print("\(mins) \(secs)")
+            }
     
     private func updateLabel(){
         minutesLabel.text = "\(mins)"
@@ -70,7 +70,8 @@ class PomodoroVC: UIViewController {
 extension PomodoroVC: PomodoroTimeDelegate {
 
     func userSelectedTime(time: String) {
-        mins = Int(time) ?? 0
+        mins = Int(time) ?? 25
+        updateLabel()
     }
 
 }
