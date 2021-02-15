@@ -21,7 +21,7 @@ class SettingsVC: UIViewController {
     
     // MARK:-- IBOutlets - Buttons
     @IBOutlet weak var InstructionsButtonOutlet: UIButton!
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var exitButton: UIButton!
     
     // MARK:-- IBOutlets - Views
     @IBOutlet weak var PomodoroTimeView: UIView!
@@ -75,11 +75,11 @@ class SettingsVC: UIViewController {
         
     }
     
-    @IBAction func doneButtonTapped(_ sender: UIButton) {
+    @IBAction func exitButtonTapped(_ sender: UIButton) {
         
         if let textFieldString = pomodoroTimeTextField.text {
-                    pomodoroTimeDelegate?.userSelectedTime(time: textFieldString)
-                }
+            pomodoroTimeDelegate?.userSelectedTime(time: textFieldString)
+            }
             pomodoroTimeTextField.resignFirstResponder()
             dismiss(animated: true, completion: nil)
     }
