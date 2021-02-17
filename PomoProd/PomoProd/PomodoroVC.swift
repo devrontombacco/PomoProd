@@ -7,15 +7,11 @@
 
 import UIKit
 
-
-// GIT TEST
-
-
 class PomodoroVC: UIViewController {
     
     // MARK:-- Variables
     var mins: Int = 0
-    var secs: Int = 3
+    var secs: Int = 0
     var pomodoroTimer: Timer?
     
     // MARK:-- Outlets
@@ -27,6 +23,9 @@ class PomodoroVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PresentSettingsVCSegue", let vc = segue.destination as? SettingsVC {
             vc.pomodoroTimeDelegate = self
+            vc.shortBreakTimeDelegate = self
+            vc.longBreakTimeDelegate = self
+            vc.pomodorosInSetDelegate = self
         }
     }
 
@@ -70,12 +69,23 @@ class PomodoroVC: UIViewController {
 
 }
 
-    // MARK:-- PomodoroTimeDelegate
-extension PomodoroVC: PomodoroTimeDelegate {
-
-    func userSelectedTime(time: String) {
-        mins = Int(time) ?? 25
+extension PomodoroVC: PomodoroTimeDelegate, ShortBreakTimeDelegate, LongBreakTimeDelegate, PomodorosInSetDelegate {
+    func passData(pomodoroTimeData: Int) {
+        print("Data passed from SettingsVC = \(pomodoroTimeData)")
+        mins = pomodoroTimeData
         updateLabel()
     }
-
+    
+    func passData(shortBreakTimeData: Int) {
+        print("Data passed from SettingsVC = \(shortBreakTimeData)")
+    }
+    
+    func passData(longBreakTimeData: Int) {
+        print("Data passed from SettingsVC = \(longBreakTimeData)")
+    }
+    
+    func passData(pomodorosInSetData: Int) {
+        print("Data passed from SettingsVC = \(pomodorosInSetData)")
+    }
+    
 }
