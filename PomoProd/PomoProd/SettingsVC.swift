@@ -46,7 +46,10 @@ class SettingsVC: UIViewController {
     
     
     // MARK:-- IBOutlets - Views
-    @IBOutlet weak var pomodoroSettingsView: UIView!
+    @IBOutlet weak var pomodoroTimeView: UIView!
+    @IBOutlet weak var shortBreakTimeView: UIView!
+    @IBOutlet weak var longBreakTimeView: UIView!
+    @IBOutlet weak var pomodorosInSetView: UIView!
     
     
     // MARK:-- IBOutlet - Labels
@@ -54,6 +57,10 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var shortBreakMinsLabel: UILabel!
     @IBOutlet weak var longBreakTimeLabel: UILabel!
     @IBOutlet weak var pomodorosInSetLabel: UILabel!
+    @IBOutlet weak var pomodoroTimeRecommendedLabel: UILabel!
+    @IBOutlet weak var shortBreakTimeRecommendedLabel: UILabel!
+    @IBOutlet weak var longBreakTimeRecommendedLabel: UILabel!
+    @IBOutlet weak var pomodorosInSetRecommendedLabel: UILabel!
     
     
     // MARK:-- IBOutlet - PickerViews
@@ -76,7 +83,10 @@ class SettingsVC: UIViewController {
         
         // Add Corner Radius to views
         InstructionsButtonOutlet.layer.cornerRadius = 25
-        pomodoroSettingsView.layer.cornerRadius = 25
+        pomodoroTimeView.layer.cornerRadius = 25
+        shortBreakTimeView.layer.cornerRadius = 25
+        longBreakTimeView.layer.cornerRadius = 25
+        pomodorosInSetView.layer.cornerRadius = 25
         
         // Add shadows to views
         configureShadows()
@@ -109,10 +119,29 @@ class SettingsVC: UIViewController {
         InstructionsButtonOutlet.layer.shadowOffset = .init(width: 10, height: 10)
         InstructionsButtonOutlet.layer.shadowRadius = 4
         
-        pomodoroSettingsView.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
-        pomodoroSettingsView.layer.shadowOpacity = 0.16
-        pomodoroSettingsView.layer.shadowOffset = .init(width: 10, height: 10)
-        pomodoroSettingsView.layer.shadowRadius = 4
+        pomodoroTimeView.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
+        pomodoroTimeView.layer.shadowOpacity = 0.16
+        pomodoroTimeView.layer.shadowOffset = .init(width: 10, height: 10)
+        pomodoroTimeView.layer.shadowRadius = 4
+        
+        
+        shortBreakTimeView.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
+        shortBreakTimeView.layer.shadowOpacity = 0.16
+        shortBreakTimeView.layer.shadowOffset = .init(width: 10, height: 10)
+        shortBreakTimeView.layer.shadowRadius = 4
+        
+        
+        longBreakTimeView.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
+        longBreakTimeView.layer.shadowOpacity = 0.16
+        longBreakTimeView.layer.shadowOffset = .init(width: 10, height: 10)
+        longBreakTimeView.layer.shadowRadius = 4
+        
+        
+        pomodorosInSetView.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
+        pomodorosInSetView.layer.shadowOpacity = 0.16
+        pomodorosInSetView.layer.shadowOffset = .init(width: 10, height: 10)
+        pomodorosInSetView.layer.shadowRadius = 4
+        
 
     }
     
