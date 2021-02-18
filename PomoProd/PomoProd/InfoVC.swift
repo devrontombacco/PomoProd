@@ -9,8 +9,14 @@ import UIKit
 
 class InfoVC: UIViewController {
 
+    // MARK:-- Outlets
+    @IBOutlet weak var exitInfoButton: UIButton!
+    
+    
+    
     // MARK:-- Views
     @IBOutlet weak var instructionsContainerView: UIView!
+    @IBOutlet weak var instructionsTitlePanel: UIView!
     @IBOutlet weak var pomodoroPanel: UIView!
     @IBOutlet weak var shortBreakPanel: UIView!
     @IBOutlet weak var longBreakPanel: UIView!
@@ -27,14 +33,14 @@ class InfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        instructionsContainerView.layer.cornerRadius = 25
-        pomodoroPanel.layer.cornerRadius = 25
-        shortBreakPanel.layer.cornerRadius = 25
-        longBreakPanel.layer.cornerRadius = 25
-        productivityPanel.layer.cornerRadius = 25
-        configureShadows()
+//        instructionsContainerView.layer.cornerRadius = 25
+//        pomodoroPanel.layer.cornerRadius = 25
+//        shortBreakPanel.layer.cornerRadius = 25
+//        longBreakPanel.layer.cornerRadius = 25
+//        productivityPanel.layer.cornerRadius = 25
+//        configureShadows()
         
-        configurePanelTextColors()
+//        configurePanelTextColors()
     }
     
     // MARK:-- Configuration Methods
@@ -61,7 +67,13 @@ class InfoVC: UIViewController {
         productivityPanel.layer.shadowRadius = 4
         
     }
-
+    
+    // MARK: -- IBActions
+    
+    @IBAction func extInfoButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func configurePanelTextColors(){
 
         let pomodoroHighlight = "A pomodoro is a unit of time, typically 25 minutes, that you work for without any breaks"
