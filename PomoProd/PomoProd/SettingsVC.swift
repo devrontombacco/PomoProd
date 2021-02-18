@@ -43,6 +43,7 @@ class SettingsVC: UIViewController {
     // MARK:-- IBOutlets - Buttons
     @IBOutlet weak var InstructionsButtonOutlet: UIButton!
     @IBOutlet weak var exitButton: UIButton!
+
     
     
     // MARK:-- IBOutlets - Views

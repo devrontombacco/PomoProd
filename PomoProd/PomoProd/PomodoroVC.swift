@@ -17,7 +17,8 @@ class PomodoroVC: UIViewController {
     // MARK:-- Outlets
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
-    @IBOutlet weak var playButtonLabel: UIButton!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,6 +33,10 @@ class PomodoroVC: UIViewController {
     // MARK:-- IBActions
     @IBAction func playButtonTapped(_ sender: UIButton) {
         startCountDown()
+    }
+    
+    @IBAction func stopButtonTapped(_ sender: UIButton) {
+        stopCountDown()
     }
     
     // MARK:-- Methods
@@ -65,6 +70,11 @@ class PomodoroVC: UIViewController {
     private func updateLabel(){
         minutesLabel.text = "\(mins)"
         secondsLabel.text = "\(secs)"
+    }
+    
+    func stopCountDown(){
+        pomodoroTimer?.invalidate()
+        print("Timer invalidated at: \(mins) \(secs)")
     }
 
 }
