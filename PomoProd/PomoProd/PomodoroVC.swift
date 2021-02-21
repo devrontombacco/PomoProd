@@ -10,7 +10,7 @@ import UIKit
 class PomodoroVC: UIViewController {
     
     // MARK:-- Variables
-    var mins: Int = 0
+    var mins: Int = 25
     var secs: Int = 0
     var pomodoroTimer: Timer?
     
@@ -81,21 +81,24 @@ class PomodoroVC: UIViewController {
 
 extension PomodoroVC: PomodoroTimeDelegate, ShortBreakTimeDelegate, LongBreakTimeDelegate, PomodorosInSetDelegate {
     func passData(pomodoroTimeData: Int) {
-        print("Data passed from SettingsVC = \(pomodoroTimeData)")
+        print("Pomodoro Time Set to: \(pomodoroTimeData)")
         mins = pomodoroTimeData
+        secs = 0
         updateLabel()
     }
     
     func passData(shortBreakTimeData: Int) {
-        print("Data passed from SettingsVC = \(shortBreakTimeData)")
+        print("Short Break Time Set To: \(shortBreakTimeData)")
+        secs = 0
     }
     
     func passData(longBreakTimeData: Int) {
-        print("Data passed from SettingsVC = \(longBreakTimeData)")
+        print("Long Break Time Set To: \(longBreakTimeData)")
+        secs = 0
     }
     
     func passData(pomodorosInSetData: Int) {
-        print("Data passed from SettingsVC = \(pomodorosInSetData)")
+        print("No. of Pomodoros in Set: \(pomodorosInSetData)")
     }
     
 }

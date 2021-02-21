@@ -12,8 +12,6 @@ class InfoVC: UIViewController {
     // MARK:-- Outlets
     @IBOutlet weak var exitInfoButton: UIButton!
     
-    
-    
     // MARK:-- Views
     @IBOutlet weak var instructionsContainerView: UIView!
     @IBOutlet weak var instructionsTitlePanel: UIView!

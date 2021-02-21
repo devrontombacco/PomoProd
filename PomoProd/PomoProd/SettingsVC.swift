@@ -92,6 +92,9 @@ class SettingsVC: UIViewController {
         // Add shadows to views
         configureShadows()
         
+        // Add highlighted border to views
+        configureBorders()
+        
         // Configure Picker Views
         pomodoroTimePicker.delegate = self
         pomodoroTimePicker.dataSource = self
@@ -144,6 +147,11 @@ class SettingsVC: UIViewController {
         pomodorosInSetView.layer.shadowRadius = 4
         
 
+    }
+    
+    func configureBorders(){
+        pomodoroTimeView.layer.borderWidth = 1
+        pomodoroTimeView.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
     }
     
     func configureInstructionsButton(){
