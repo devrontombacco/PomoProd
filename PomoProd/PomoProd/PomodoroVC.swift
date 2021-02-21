@@ -13,6 +13,7 @@ class PomodoroVC: UIViewController {
     var mins: Int = 25
     var secs: Int = 0
     var pomodoroTimer: Timer?
+    var countLabel: String = "Pomodoro"
     
     // MARK:-- Outlets
     @IBOutlet weak var minutesLabel: UILabel!
@@ -74,11 +75,11 @@ class PomodoroVC: UIViewController {
                 secs = 59
             }
             
-            updateLabel()
+            updateMinsLabel()
             print("\(mins) \(secs)")
             }
     
-    private func updateLabel(){
+    private func updateMinsLabel(){
         minutesLabel.text = "\(mins)"
         secondsLabel.text = "\(secs)"
     }
@@ -94,7 +95,7 @@ extension PomodoroVC: PomodoroTimeDelegate, ShortBreakTimeDelegate, LongBreakTim
     func passData(pomodoroTimeData: Int) {
         mins = pomodoroTimeData
         secs = 0
-        updateLabel()
+        updateMinsLabel()
     }
     
     func passData(shortBreakTimeData: Int) {
