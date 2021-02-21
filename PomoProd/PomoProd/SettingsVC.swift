@@ -109,9 +109,9 @@ class SettingsVC: UIViewController {
 
     // MARK:-- @IBActions
     @IBAction func exitButtonTapped(_ sender: UIButton) {
-        print("Your Picker values are \(pomodoroTimePickerSelection), \(shortBreakTimePickerSelection), \(longBreakTimePickerSelection), \(pomodorosInSetPickerSelection)")
         
             dismiss(animated: true, completion: nil)
+        
     }
     
     
