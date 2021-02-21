@@ -200,16 +200,16 @@ extension SettingsVC: UIPickerViewDataSource, UIPickerViewDelegate {
         
         switch pickerView {
         case pomodoroTimePicker:
-             print("pomodoroTimePicker: \(Int(pomodoroTimeArray[row])))")
+             print("pomodoroTimePicker: \(Int(pomodoroTimeArray[row]))")
              pomodoroTimeDelegate.passData(pomodoroTimeData: Int(pomodoroTimeArray[row]))
         case shortBreakTimePicker:
-             print("shortBreakTimePicker: \(Int(shortBreakTimeArray[row])))")
+             print("shortBreakTimePicker: \(Int(shortBreakTimeArray[row]))")
              shortBreakTimeDelegate.passData(pomodoroTimeData: Int(shortBreakTimeArray[row]))
         case longBreakTimePicker:
-             print("longBreakTimePicker: \(Int(longBreakTimeArray[row])))")
+             print("longBreakTimePicker: \(Int(longBreakTimeArray[row]))")
             longBreakTimeDelegate.passData(pomodoroTimeData: Int(longBreakTimeArray[row]))
         default:
-             print("pomodorosInSetPicker: \(Int(pomodorosInSetArray[row])))")
+             print("pomodorosInSetPicker: \(Int(pomodorosInSetArray[row]))")
              pomodorosInSetDelegate.passData(pomodoroTimeData: Int(pomodorosInSetArray[row]))
         }
     }

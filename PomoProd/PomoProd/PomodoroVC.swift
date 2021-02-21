@@ -81,24 +81,21 @@ class PomodoroVC: UIViewController {
 
 extension PomodoroVC: PomodoroTimeDelegate, ShortBreakTimeDelegate, LongBreakTimeDelegate, PomodorosInSetDelegate {
     func passData(pomodoroTimeData: Int) {
-        print("Pomodoro Time Set to: \(pomodoroTimeData)")
         mins = pomodoroTimeData
         secs = 0
         updateLabel()
     }
     
     func passData(shortBreakTimeData: Int) {
-        print("Short Break Time Set To: \(shortBreakTimeData)")
         secs = 0
     }
     
     func passData(longBreakTimeData: Int) {
-        print("Long Break Time Set To: \(longBreakTimeData)")
         secs = 0
     }
     
     func passData(pomodorosInSetData: Int) {
-        print("No. of Pomodoros in Set: \(pomodorosInSetData)")
+        // More code here later
     }
     
 }
