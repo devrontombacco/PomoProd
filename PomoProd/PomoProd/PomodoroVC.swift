@@ -19,8 +19,11 @@ class PomodoroVC: UIViewController {
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var pomodoroCountLabel: UILabel!
     
-    
+    override func viewDidLoad() {
+        highlightCountLabel()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PresentSettingsVCSegue", let vc = segue.destination as? SettingsVC {
             vc.pomodoroTimeDelegate = self
@@ -39,7 +42,15 @@ class PomodoroVC: UIViewController {
         stopCountDown()
     }
     
+    
     // MARK:-- Methods
+    func highlightCountLabel(){
+        
+        pomodoroCountLabel.layer.borderWidth = 1
+        pomodoroCountLabel.layer.borderColor = K.color.highlighted
+        
+    }
+    
     func startCountDown(){
         print("Countdown started with \(mins):\(secs)")
         pomodoroTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PomodoroVC.countDown), userInfo: nil, repeats: true)

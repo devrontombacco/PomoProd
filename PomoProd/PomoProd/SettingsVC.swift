@@ -150,8 +150,22 @@ class SettingsVC: UIViewController {
     }
     
     func configureBorders(){
+        
+        InstructionsButtonOutlet.layer.borderWidth = 1
+        InstructionsButtonOutlet.layer.borderColor = K.color.highlighted
+        
         pomodoroTimeView.layer.borderWidth = 1
-        pomodoroTimeView.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
+        pomodoroTimeView.layer.borderColor = K.color.highlighted
+        
+        shortBreakTimeView.layer.borderWidth = 1
+        shortBreakTimeView.layer.borderColor = K.color.highlighted
+        
+        longBreakTimeView.layer.borderWidth = 1
+        longBreakTimeView.layer.borderColor = K.color.highlighted
+        
+        pomodorosInSetView.layer.borderWidth = 1
+        pomodorosInSetView.layer.borderColor = K.color.highlighted
+        
     }
     
     func configureInstructionsButton(){

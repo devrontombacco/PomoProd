@@ -133,6 +133,7 @@
                     <connections>
                         <outlet property="minutesLabel" destination="HL3-A2-gN9" id="SYR-gW-GNf"/>
                         <outlet property="playButton" destination="6vg-w3-pvD" id="XoN-hH-bJF"/>
+                        <outlet property="pomodoroCountLabel" destination="eIR-V5-h02" id="GVg-wZ-0TE"/>
                         <outlet property="secondsLabel" destination="OYX-1j-5FW" id="54S-4B-oJp"/>
                         <outlet property="stopButton" destination="7Ui-11-hJt" id="gns-LK-8e7"/>
                     </connections>
