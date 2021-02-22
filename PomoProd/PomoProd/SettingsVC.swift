@@ -9,19 +9,19 @@ import UIKit
 
     // MARK:-- Protocols
 protocol PomodoroTimeDelegate {
-    func passData(pomodoroTimeData: Int)
+    func passPomodoroTimeData(pomodoroTimeData: Int)
 }
 
 protocol ShortBreakTimeDelegate {
-    func passData(shortBreakTimeData: Int)
+    func passShortBreakTimeData(shortBreakTimeData: Int)
 }
 
 protocol LongBreakTimeDelegate {
-    func passData(longBreakTimeData: Int)
+    func passLongBreakTimeData(longBreakTimeData: Int)
 }
 
 protocol PomodorosInSetDelegate {
-    func passData(pomodorosInSetData: Int)
+    func passPomdorosInSetData(pomodorosInSetData: Int)
 }
 
 class SettingsVC: UIViewController {
@@ -35,9 +35,9 @@ class SettingsVC: UIViewController {
     
     // MARK:-- Delegates
     var pomodoroTimeDelegate: PomodoroTimeDelegate!
-    var shortBreakTimeDelegate: PomodoroTimeDelegate!
-    var longBreakTimeDelegate: PomodoroTimeDelegate!
-    var pomodorosInSetDelegate: PomodoroTimeDelegate!
+    var shortBreakTimeDelegate: ShortBreakTimeDelegate!
+    var longBreakTimeDelegate: LongBreakTimeDelegate!
+    var pomodorosInSetDelegate: PomodorosInSetDelegate!
     
     
     // MARK:-- IBOutlets - Buttons
@@ -198,14 +198,14 @@ extension SettingsVC: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         switch pickerView {
-        case pomodoroTimePicker:
-            return String(pomodoroTimeArray[row])
-        case shortBreakTimePicker:
-            return String(shortBreakTimeArray[row])
-        case longBreakTimePicker:
-            return String(longBreakTimeArray[row])
-        default:
-            return String(pomodorosInSetArray[row])
+            case pomodoroTimePicker:
+                return String(pomodoroTimeArray[row])
+            case shortBreakTimePicker:
+                return String(shortBreakTimeArray[row])
+            case longBreakTimePicker:
+                return String(longBreakTimeArray[row])
+            default:
+                return String(pomodorosInSetArray[row])
         }
         
     }
@@ -213,18 +213,18 @@ extension SettingsVC: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         switch pickerView {
-        case pomodoroTimePicker:
-             print("pomodoroTimePicker: \(Int(pomodoroTimeArray[row]))")
-             pomodoroTimeDelegate.passData(pomodoroTimeData: Int(pomodoroTimeArray[row]))
-        case shortBreakTimePicker:
-             print("shortBreakTimePicker: \(Int(shortBreakTimeArray[row]))")
-             shortBreakTimeDelegate.passData(pomodoroTimeData: Int(shortBreakTimeArray[row]))
-        case longBreakTimePicker:
-             print("longBreakTimePicker: \(Int(longBreakTimeArray[row]))")
-            longBreakTimeDelegate.passData(pomodoroTimeData: Int(longBreakTimeArray[row]))
-        default:
-             print("pomodorosInSetPicker: \(Int(pomodorosInSetArray[row]))")
-             pomodorosInSetDelegate.passData(pomodoroTimeData: Int(pomodorosInSetArray[row]))
+            case pomodoroTimePicker:
+                 print("pomodoroTimePicker: \(Int(pomodoroTimeArray[row]))")
+                pomodoroTimeDelegate.passPomodoroTimeData(pomodoroTimeData: Int(pomodoroTimeArray[row]))
+            case shortBreakTimePicker:
+                 print("shortBreakTimePicker: \(Int(shortBreakTimeArray[row]))")
+                shortBreakTimeDelegate.passShortBreakTimeData(shortBreakTimeData: Int(shortBreakTimeArray[row]))
+            case longBreakTimePicker:
+                 print("longBreakTimePicker: \(Int(longBreakTimeArray[row]))")
+                longBreakTimeDelegate.passLongBreakTimeData(longBreakTimeData: Int(longBreakTimeArray[row]))
+            default:
+                 print("pomodorosInSetPicker: \(Int(pomodorosInSetArray[row]))")
+                pomodorosInSetDelegate.passPomdorosInSetData(pomodorosInSetData: Int(pomodorosInSetArray[row]))
         }
     }
     

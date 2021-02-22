@@ -13,7 +13,8 @@ class PomodoroVC: UIViewController {
     var mins: Int = 25
     var secs: Int = 0
     var pomodoroTimer: Timer?
-    var countLabel: String = "Pomodoro"
+    var currentPomodoro: Int = 1
+    var totalPomodoros: Int = 1
     
     // MARK:-- Outlets
     @IBOutlet weak var minutesLabel: UILabel!
@@ -24,7 +25,9 @@ class PomodoroVC: UIViewController {
     
     override func viewDidLoad() {
         highlightCountLabel()
+        updatePomorodoCountLabel()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PresentSettingsVCSegue", let vc = segue.destination as? SettingsVC {
             vc.pomodoroTimeDelegate = self
@@ -84,6 +87,10 @@ class PomodoroVC: UIViewController {
         secondsLabel.text = "\(secs)"
     }
     
+    private func updatePomorodoCountLabel(){
+        pomodoroCountLabel.text! = "Pomodoro  \(currentPomodoro)/\(totalPomodoros)"
+    }
+    
     func stopCountDown(){
         pomodoroTimer?.invalidate()
         print("Timer invalidated at: \(mins) \(secs)")
@@ -91,23 +98,37 @@ class PomodoroVC: UIViewController {
 
 }
 
-extension PomodoroVC: PomodoroTimeDelegate, ShortBreakTimeDelegate, LongBreakTimeDelegate, PomodorosInSetDelegate {
-    func passData(pomodoroTimeData: Int) {
+extension PomodoroVC: PomodoroTimeDelegate {
+    
+    func passPomodoroTimeData(pomodoroTimeData: Int) {
         mins = pomodoroTimeData
         secs = 0
         updateMinsLabel()
     }
     
-    func passData(shortBreakTimeData: Int) {
+}
+
+extension PomodoroVC: ShortBreakTimeDelegate {
+    
+    func passShortBreakTimeData(shortBreakTimeData: Int) {
         secs = 0
     }
     
-    func passData(longBreakTimeData: Int) {
+}
+ 
+extension PomodoroVC: LongBreakTimeDelegate {
+    
+    func passLongBreakTimeData(longBreakTimeData: Int) {
         secs = 0
     }
+
+}
+
+extension PomodoroVC: PomodorosInSetDelegate {
     
-    func passData(pomodorosInSetData: Int) {
-        // More code here later
+    func passPomdorosInSetData(pomodorosInSetData: Int) {
+        totalPomodoros = pomodorosInSetData
+        updatePomorodoCountLabel()
     }
     
 }
