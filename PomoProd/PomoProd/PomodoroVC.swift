@@ -73,20 +73,45 @@ class PomodoroVC: UIViewController {
         
     }
     
+    
     func stopCountDown(){
         pomodoroTimer?.invalidate()
         print("Timer invalidated at: \(mins) \(secs)")
     }
+    
     
     private func updatePomodoroMinsAndSecsLabel(){
         minutesLabel.text = "\(mins)"
         secondsLabel.text = "\(secs)"
     }
     
+    private func updatePomodoroShortBreakMinsAndSecsLabel(){
+        minutesLabel.text = "\(breakMins)"
+        secondsLabel.text = "\(breakSecs)"
+    }
     
-    //    private func updatePomorodoCountLabel(){
-    //        pomodoroCountLabel.text! = "Pomodoro  \(currentPomodoro) / \(totalPomodoros)"
-    //    }
+    private func updatePomodoroLongBreakMinsAndSecsLabel(){
+        minutesLabel.text = "\(longBreakMins)"
+        secondsLabel.text = "\(longBreakSecs)"
+    }
+    
+
+    private func updatePomorodoCountLabel(){
+        pomodoroCountLabel.text! = "Pomodoro \(pomodoroCount) of \(userSelectedPomodoroNumber)"
+    }
+    
+    
+    private func changePomodoroCountLabelToShortBreak(){
+        pomodoroCountLabel.text! = "Short Break \(breakCount) of \(userSelectedPomodoroNumber - 1)"
+    }
+    
+    private func changePomodoroCountLabelToLongBreak(){
+        pomodoroCountLabel.text! = "Long Break"
+    }
+    
+    private func pomodoroSeriesComplete(){
+        pomodoroCountLabel.text! = "Pomodoro Series Completed"
+    }
 
 }
 
@@ -124,7 +149,8 @@ extension PomodoroVC {
             print("\(mins):\(secs)")
         }
         
-//        updatePomodoroMinsAndSecsLabel()
+        updatePomodoroMinsAndSecsLabel()
+        updatePomorodoCountLabel()
     }
 }
 
@@ -175,8 +201,8 @@ extension PomodoroVC {
                 print("\(breakMins):\(breakSecs)")
             }
             
-//            updatePomodoroMinsAndSecsLabel()
-        
+        changePomodoroCountLabelToShortBreak()
+        updatePomodoroShortBreakMinsAndSecsLabel()
     }
     
     
@@ -197,33 +223,35 @@ extension PomodoroVC {
         if longBreakMins == 0 && longBreakSecs == 0 {
             
             // Stop timer when count down has finished
+            print("Pomodoro Series Completed")
+            pomodoroCountLabel.text! = "Pomodoro Series Completed"
             longBreakTimer?.invalidate()
             
             // reset pomodoro time
-            longBreakMins = 0
-            longBreakSecs = 10
+            // longBreakMins = 0
+            // longBreakSecs = 10
             
             // reset break time
-            longBreakMins = 0
-            longBreakSecs = 5
-            
-            print("Pomodoro Series Finished")
+            // longBreakMins = 0
+            // longBreakSecs = 5
 
             }
             else if longBreakSecs > 0 {
                 // decrement seconds by one
                 longBreakSecs = longBreakSecs - 1
+                changePomodoroCountLabelToLongBreak()
                 print("\(longBreakMins):\(longBreakSecs)")
+                updatePomodoroLongBreakMinsAndSecsLabel()
             }
             else if longBreakSecs == 0 {
                 // when secs get to 0, decrement mins
                 longBreakMins = longBreakMins - 1
                 longBreakSecs = 5
+                changePomodoroCountLabelToLongBreak()
                 print("\(longBreakMins):\(longBreakSecs)")
+                updatePomodoroLongBreakMinsAndSecsLabel()
             }
             
-//            updatePomodoroMinsAndSecsLabel()
-        
     }
     
 }
