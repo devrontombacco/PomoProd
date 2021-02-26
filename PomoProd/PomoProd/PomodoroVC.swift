@@ -9,12 +9,30 @@ import UIKit
 
 class PomodoroVC: UIViewController {
     
-    // MARK:-- Variables
-    var mins: Int = 25
-    var secs: Int = 0
+    
+    // MARK:-- Pomodoro Timer Variables
     var pomodoroTimer: Timer?
-    var currentPomodoro: Int = 1
-    var totalPomodoros: Int = 1
+    var mins: Int = 0
+    var secs: Int = 10
+    var pomodoroCount: Int = 0
+    
+    
+    // MARK:-- Short Break Timer Variables
+    var breakTimer: Timer?
+    var breakMins: Int = 0
+    var breakSecs: Int = 5
+    var breakCount: Int = 0
+    
+    
+    // MARK:-- Long Break Timer Variables
+    var longBreakTimer: Timer?
+    var longBreakMins: Int = 0
+    var longBreakSecs: Int = 8
+
+    
+    // MARK: -- General Variables
+    var userSelectedPomodoroNumber = 3
+    
     
     // MARK:-- Outlets
     @IBOutlet weak var minutesLabel: UILabel!
@@ -24,8 +42,8 @@ class PomodoroVC: UIViewController {
     @IBOutlet weak var pomodoroCountLabel: UILabel!
     
     override func viewDidLoad() {
-        highlightCountLabel()
-        updatePomorodoCountLabel()
+//        highlightCountLabel()
+//        updatePomorodoCountLabel()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,55 +73,168 @@ class PomodoroVC: UIViewController {
         
     }
     
-    func startCountDown(){
-        print("Countdown started with \(mins):\(secs)")
-        pomodoroTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PomodoroVC.countDown), userInfo: nil, repeats: true)
+    func stopCountDown(){
+        pomodoroTimer?.invalidate()
+        print("Timer invalidated at: \(mins) \(secs)")
     }
     
-    @objc func countDown(){ 
+    private func updatePomodoroMinsAndSecsLabel(){
+        minutesLabel.text = "\(mins)"
+        secondsLabel.text = "\(secs)"
+    }
+    
+    
+    //    private func updatePomorodoCountLabel(){
+    //        pomodoroCountLabel.text! = "Pomodoro  \(currentPomodoro) / \(totalPomodoros)"
+    //    }
+
+}
+
+extension PomodoroVC {
+    
+    // MARK: Pomodoro Timer Function
+    func startCountDown(){
+        
+        pomodoroCount += 1
+        if pomodoroCount <= userSelectedPomodoroNumber {
+            print("Pomodoro: \(pomodoroCount)")
+            print("\(mins):\(secs)")
+            pomodoroTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+        } else {
+            startLongBreakTimer()
+        }
+        
+    }
+    
+    @objc func countDown(){
         
         if secs == 0 && mins == 0 {
             
             // Stop timer when count down has finished
             pomodoroTimer?.invalidate()
-            print("Timer invalidated")
+            startShortBreakCountDown()
+        } else if secs > 0 {
+            // decrement seconds by one
+            secs = secs - 1
+            print("\(mins):\(secs)")
+        } else if secs == 0 {
+            // when secs get to 0, decrement mins
+            mins = mins - 1
+            secs = 59
+            print("\(mins):\(secs)")
+        }
+        
+//        updatePomodoroMinsAndSecsLabel()
+    }
+}
+
+extension PomodoroVC {
+    
+    // MARK: Short Break Timer Function
+    
+    func startShortBreakCountDown(){
+        
+        breakCount += 1
+            if breakCount <= userSelectedPomodoroNumber - 1 {
+                print("Break: \(breakCount)")
+                print("\(breakMins):\(breakSecs)")
+                breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector:#selector(shortBreakCountDown), userInfo: nil, repeats: true)
+            } else {
+                startLongBreakTimer()
             }
-            else if secs > 0 {
+        
+    }
+    
+    @objc func shortBreakCountDown(){
+        
+        if breakMins == 0 && breakSecs == 0 {
+            
+            // Stop timer when count down has finished
+            breakTimer?.invalidate()
+            
+            // reset pomodoro time
+            mins = 0
+            secs = 10
+            
+            // reset break time
+            breakMins = 0
+            breakSecs = 5
+            
+            startCountDown()
+
+            }
+            else if breakSecs > 0 {
                 // decrement seconds by one
-                secs = secs - 1
+                breakSecs = breakSecs - 1
+                print("\(breakMins):\(breakSecs)")
             }
-            else if secs == 0 {
+            else if breakSecs == 0 {
                 // when secs get to 0, decrement mins
-                mins = mins - 1
-                secs = 59
+                breakMins = breakMins - 1
+                breakSecs = 5
+                print("\(breakMins):\(breakSecs)")
             }
             
-            updateMinsLabel()
-            print("\(mins) \(secs)")
-            }
-    
-    private func updateMinsLabel(){
-        minutesLabel.text = "\(mins)"
-        secondsLabel.text = "\(secs)"
+//            updatePomodoroMinsAndSecsLabel()
+        
     }
     
-    private func updatePomorodoCountLabel(){
-        pomodoroCountLabel.text! = "Pomodoro  \(currentPomodoro)/\(totalPomodoros)"
-    }
     
-    func stopCountDown(){
-        pomodoroTimer?.invalidate()
-        print("Timer invalidated at: \(mins) \(secs)")
-    }
-
 }
+
+extension PomodoroVC {
+    
+    // MARK: Long Break Timer Function
+    
+    func startLongBreakTimer(){
+
+        print("Long Break")
+        longBreakTimer = Timer.scheduledTimer(timeInterval: 1, target: self,selector:#selector(longBreakCountDown), userInfo: nil, repeats: true)
+        }
+    
+    @objc func longBreakCountDown(){
+        
+        if longBreakMins == 0 && longBreakSecs == 0 {
+            
+            // Stop timer when count down has finished
+            longBreakTimer?.invalidate()
+            
+            // reset pomodoro time
+            longBreakMins = 0
+            longBreakSecs = 10
+            
+            // reset break time
+            longBreakMins = 0
+            longBreakSecs = 5
+            
+            print("Pomodoro Series Finished")
+
+            }
+            else if longBreakSecs > 0 {
+                // decrement seconds by one
+                longBreakSecs = longBreakSecs - 1
+                print("\(longBreakMins):\(longBreakSecs)")
+            }
+            else if longBreakSecs == 0 {
+                // when secs get to 0, decrement mins
+                longBreakMins = longBreakMins - 1
+                longBreakSecs = 5
+                print("\(longBreakMins):\(longBreakSecs)")
+            }
+            
+//            updatePomodoroMinsAndSecsLabel()
+        
+    }
+    
+}
+
 
 extension PomodoroVC: PomodoroTimeDelegate {
     
     func passPomodoroTimeData(pomodoroTimeData: Int) {
         mins = pomodoroTimeData
         secs = 0
-        updateMinsLabel()
+        updatePomodoroMinsAndSecsLabel()
     }
     
 }
@@ -127,8 +258,8 @@ extension PomodoroVC: LongBreakTimeDelegate {
 extension PomodoroVC: PomodorosInSetDelegate {
     
     func passPomdorosInSetData(pomodorosInSetData: Int) {
-        totalPomodoros = pomodorosInSetData
-        updatePomorodoCountLabel()
+//        userSelectedPomodoroNumber = pomodorosInSetData
+//        updatePomorodoCountLabel()
     }
     
 }
