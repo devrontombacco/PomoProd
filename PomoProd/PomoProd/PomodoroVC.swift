@@ -92,12 +92,12 @@ class PomodoroVC: UIViewController {
         pomodoroTimer?.invalidate()
         breakTimer?.invalidate()
         longBreakTimer?.invalidate()
-        reset()
+        resetTimeValues()
         pomodoroCountLabel!.text = "Pomodoro STOPPED"
         updatePomodoroMinsAndSecsLabel()
     }
     
-    func reset(){
+    func resetTimeValues(){
         // reset all timers to zero
         mins = 0
         secs = 0
