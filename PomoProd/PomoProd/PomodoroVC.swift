@@ -38,6 +38,7 @@ class PomodoroVC: UIViewController {
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var pomodoroCountLabel: UILabel!
     
@@ -60,6 +61,10 @@ class PomodoroVC: UIViewController {
         startCountDown()
     }
     
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        pauseCountDown()
+    }
+    
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         stopCountDown()
     }
@@ -73,14 +78,44 @@ class PomodoroVC: UIViewController {
         
     }
     
+    func pauseCountDown(){
+        pomodoroTimer?.invalidate()
+        breakTimer?.invalidate()
+        longBreakTimer?.invalidate()
+        resetCounts()
+        pomodoroCountLabel!.text = "Timer Paused"
+    }
     
     func stopCountDown(){
         pomodoroTimer?.invalidate()
         breakTimer?.invalidate()
         longBreakTimer?.invalidate()
-        pomodoroCountLabel!.text = "Timer Paused"
+        reset()
+        pomodoroCountLabel!.text = "Pomodoro STOPPED"
+        updatePomodoroMinsAndSecsLabel()
     }
     
+    func reset(){
+        // reset all timers to zero
+        mins = 0
+        secs = 0
+        breakMins = 0
+        breakSecs = 0
+        longBreakMins = 0
+        longBreakSecs = 0
+    }
+    
+    func resetCounts(){
+        pomodoroCount -= 1
+        print("The current pomodoro is: \(pomodoroCount)")
+        
+        if breakCount == 0 {
+            breakCount = 0
+        } else {
+            breakCount -= 1
+        }
+        print("The next break is: \(breakCount)")
+    }
     
     private func updatePomodoroMinsAndSecsLabel(){
         minutesLabel.text = "\(mins)"
