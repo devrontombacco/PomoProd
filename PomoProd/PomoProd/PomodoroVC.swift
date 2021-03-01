@@ -328,7 +328,6 @@ extension PomodoroVC: PomodorosInSetDelegate {
     
     func passPomdorosInSetData(pomodorosInSetData: Int) {
         userSelectedPomodoroNumber = pomodorosInSetData
-//        updatePomorodoCountLabel()
     }
     
 }
