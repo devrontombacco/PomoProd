@@ -12,21 +12,21 @@ class PomodoroVC: UIViewController {
     
     // MARK:-- Pomodoro Timer Variables
     var pomodoroTimer: Timer?
-    var mins: Int = 25
+    var mins: Int = 0
     var secs: Int = 0
     var pomodoroCount: Int = 0
     
     
     // MARK:-- Short Break Timer Variables
     var breakTimer: Timer?
-    var breakMins: Int = 5
+    var breakMins: Int = 0
     var breakSecs: Int = 0
     var breakCount: Int = 0
     
     
     // MARK:-- Long Break Timer Variables
     var longBreakTimer: Timer?
-    var longBreakMins: Int = 25
+    var longBreakMins: Int = 0
     var longBreakSecs: Int = 0
 
     
@@ -42,8 +42,8 @@ class PomodoroVC: UIViewController {
     @IBOutlet weak var pomodoroCountLabel: UILabel!
     
     override func viewDidLoad() {
+        pomodoroCountLabel!.text = "Set time to begin"
         highlightCountLabel()
-        updatePomorodoCountLabel()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
