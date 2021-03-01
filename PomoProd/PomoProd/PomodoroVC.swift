@@ -67,6 +67,8 @@ class PomodoroVC: UIViewController {
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         stopCountDown()
+        playButton.isEnabled = false
+        pauseButton.isEnabled = false
     }
     
     
