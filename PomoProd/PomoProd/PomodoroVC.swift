@@ -270,14 +270,6 @@ extension PomodoroVC {
             print("Pomodoro Series Completed")
             pomodoroCountLabel.text! = "Pomodoro Series Completed"
             longBreakTimer?.invalidate()
-            
-            // reset pomodoro time
-            // longBreakMins = 0
-            // longBreakSecs = 10
-            
-            // reset break time
-            // longBreakMins = 0
-            // longBreakSecs = 5
 
             }
             else if longBreakSecs > 0 {
