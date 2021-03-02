@@ -56,6 +56,7 @@ class PomodoroVC: UIViewController {
         }
     }
 
+    
     // MARK:-- IBActions
     @IBAction func playButtonTapped(_ sender: UIButton) {
         startCountDown()
@@ -72,7 +73,8 @@ class PomodoroVC: UIViewController {
     }
     
     
-    // MARK:-- Methods
+    
+    // MARK:-- UI Methods
     func highlightCountLabel(){
         
         pomodoroCountLabel.layer.borderWidth = 1
@@ -80,6 +82,8 @@ class PomodoroVC: UIViewController {
         
     }
     
+    
+    // MARK: -- All Timer Methods
     func pauseCountDown(){
         pomodoroTimer?.invalidate()
         breakTimer?.invalidate()
@@ -119,11 +123,24 @@ class PomodoroVC: UIViewController {
         print("The next break is: \(breakCount)")
     }
     
+    
+    //MARK: -- Enable/Disable Buttons Methods
     func enablePlayPauseButtons(){
         playButton.isEnabled = true
         pauseButton.isEnabled = true
     }
     
+    
+    // Disable all buttons
+    
+    // Disable Play/Pause buttons
+    
+    // Disable Pause/Stop buttons
+    
+    // Disable Play button
+    
+    
+    // MARK: -- Update Labels Methods
     private func updatePomodoroMinsAndSecsLabel(){
         minutesLabel.text = "\(mins)"
         secondsLabel.text = "\(secs)"
