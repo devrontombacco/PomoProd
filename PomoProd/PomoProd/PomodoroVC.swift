@@ -43,7 +43,7 @@ class PomodoroVC: UIViewController {
     @IBOutlet weak var pomodoroCountLabel: UILabel!
     
     override func viewDidLoad() {
-        pomodoroCountLabel!.text = "Set time to begin"
+        pomodoroCountLabel!.text = "Set timer and breaks"
         highlightCountLabel()
         disablePlayPauseStop()
     }
@@ -197,6 +197,12 @@ class PomodoroVC: UIViewController {
         pomodoroCountLabel.text! = "Long Break"
     }
     
+    
+    private func pomodoroSeriesReady(){
+        pomodoroCountLabel.text! = "Pomodoro Series Ready"
+    }
+    
+    
     private func pomodoroSeriesComplete(){
         pomodoroCountLabel.text! = "Pomodoro Series Completed"
     }
@@ -344,6 +350,7 @@ extension PomodoroVC: PomodoroTimeDelegate {
         secs = 0
         updatePomodoroMinsAndSecsLabel()
         enablePlay()
+        pomodoroSeriesReady()
     }
     
 }
@@ -354,6 +361,7 @@ extension PomodoroVC: ShortBreakTimeDelegate {
         breakMins = shortBreakTimeData
         secs = 0
         enablePlay()
+        pomodoroSeriesReady()
     }
     
 }
@@ -364,6 +372,7 @@ extension PomodoroVC: LongBreakTimeDelegate {
         longBreakMins = longBreakTimeData
         secs = 0
         enablePlay()
+        pomodoroSeriesReady()
     }
 
 }
@@ -373,6 +382,7 @@ extension PomodoroVC: PomodorosInSetDelegate {
     func passPomdorosInSetData(pomodorosInSetData: Int) {
         userSelectedPomodoroNumber = pomodorosInSetData
         enablePlay()
+        pomodoroSeriesReady()
     }
     
 }

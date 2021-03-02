@@ -385,7 +385,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNs-8P-GIs" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="MFR-qb-ZcP" userLabel="InstructionsContainerView">
                                                 <rect key="frame" x="0.0" y="-42" width="414" height="1200"/>
@@ -512,7 +512,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1200" id="GlE-Yg-Qvq"/>
+                                            <constraint firstAttribute="height" constant="1100" id="GlE-Yg-Qvq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -525,7 +525,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8oM-ME-Jib"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.85490196080000003" green="0.95294117649999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Skn-Ji-LhZ" firstAttribute="top" secondItem="leh-kz-Mwk" secondAttribute="top" id="3LL-s6-bRq"/>
                             <constraint firstItem="Skn-Ji-LhZ" firstAttribute="trailing" secondItem="8oM-ME-Jib" secondAttribute="trailing" id="4Nb-F2-rz0"/>

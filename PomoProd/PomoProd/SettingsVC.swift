@@ -109,9 +109,7 @@ class SettingsVC: UIViewController {
 
     // MARK:-- @IBActions
     @IBAction func exitButtonTapped(_ sender: UIButton) {
-        
-            dismiss(animated: true, completion: nil)
-        
+        dismiss(animated: true, completion: nil)
     }
     
     

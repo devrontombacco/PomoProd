@@ -41,6 +41,7 @@ class InfoVC: UIViewController {
     
     func configureCornerRadius(){
         instructionsContainerView.layer.cornerRadius = 25
+        instructionsTitlePanel.layer.cornerRadius = 25
         pomodoroPanel.layer.cornerRadius = 25
         shortBreakPanel.layer.cornerRadius = 25
         longBreakPanel.layer.cornerRadius = 25
