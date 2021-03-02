@@ -31,17 +31,22 @@ class InfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        instructionsContainerView.layer.cornerRadius = 25
-//        pomodoroPanel.layer.cornerRadius = 25
-//        shortBreakPanel.layer.cornerRadius = 25
-//        longBreakPanel.layer.cornerRadius = 25
-//        productivityPanel.layer.cornerRadius = 25
-//        configureShadows()
+            configureCornerRadius()
+            configureShadows()
+            configurePanelTextColors()
         
-//        configurePanelTextColors()
     }
     
     // MARK:-- Configuration Methods
+    
+    func configureCornerRadius(){
+        instructionsContainerView.layer.cornerRadius = 25
+        pomodoroPanel.layer.cornerRadius = 25
+        shortBreakPanel.layer.cornerRadius = 25
+        longBreakPanel.layer.cornerRadius = 25
+        productivityPanel.layer.cornerRadius = 25
+    }
+    
     func configureShadows(){
         
         pomodoroPanel.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
@@ -74,27 +79,41 @@ class InfoVC: UIViewController {
     
     func configurePanelTextColors(){
 
+        // Give title highlighted underline
+
+        let textColor: UIColor = .white
+        let underLineColor: CGColor = K.color.highlighted
+        let underLineStyle = NSUnderlineStyle.single.rawValue
+        let labelAtributes: [NSAttributedString.Key : Any]  = [
+            NSAttributedString.Key.foregroundColor: textColor,
+                NSAttributedString.Key.underlineStyle: underLineStyle,
+                NSAttributedString.Key.underlineColor: underLineColor
+            ]
+            
+        instructionsTitleLabel.attributedText = NSAttributedString(string: "How does it work?",attributes: labelAtributes)
+    
+        
         let pomodoroHighlight = "A pomodoro is a unit of time, typically 25 minutes, that you work for without any breaks"
         let pomodoroHighlightAttributedString = NSMutableAttributedString(string: pomodoroHighlight)
         pomodoroHighlightAttributedString.addAttribute(.foregroundColor, value: K.color.highlighted, range: NSRange(location: 2, length: 8))
         pomodoPanelLabel.attributedText = pomodoroHighlightAttributedString
-        
+
         let shortBreakHighlight = "Between each pomodoro you may take a short break (it is recommended not to do longer than 5 minutes)"
         let shortBreakHighlightAttributedString = NSMutableAttributedString(string: shortBreakHighlight)
         shortBreakHighlightAttributedString.addAttribute(.foregroundColor, value: K.color.highlighted, range: NSRange(location: 36, length: 12))
         shortBreakPanelLabel.attributedText = shortBreakHighlightAttributedString
-        
-            
+
+
         let longBreakHighlight = "After a series of pomodoros (usually 3 or 4), you can then take a long break for about 25 minutes"
         let longBreakHighlightAttributedString = NSMutableAttributedString(string: longBreakHighlight)
         longBreakHighlightAttributedString.addAttribute(.foregroundColor, value: K.color.highlighted, range: NSRange(location: 66, length: 10))
         longBreakPanelLabel.attributedText = longBreakHighlightAttributedString
-        
+
         let productiveHighlight = "These short bursts of focus prove to be much more productive in the long run!"
         let productiveHighlightAttributedString = NSMutableAttributedString(string: productiveHighlight)
         productiveHighlightAttributedString.addAttribute(.foregroundColor, value: K.color.highlighted, range: NSRange(location: 50, length: 10))
         productivityPanelLabel.attributedText = productiveHighlightAttributedString
-    
+
     }
     
 }
