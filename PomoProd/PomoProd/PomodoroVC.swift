@@ -45,6 +45,7 @@ class PomodoroVC: UIViewController {
     override func viewDidLoad() {
         pomodoroCountLabel!.text = "Set time to begin"
         highlightCountLabel()
+        disablePlayPauseStop()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,16 +61,19 @@ class PomodoroVC: UIViewController {
     // MARK:-- IBActions
     @IBAction func playButtonTapped(_ sender: UIButton) {
         startCountDown()
+        disablePlay()
+        enablePauseStop()
     }
     
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        disablePause()
         pauseCountDown()
+        enablePlay()
     }
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         stopCountDown()
-        playButton.isEnabled = false
-        pauseButton.isEnabled = false
+        disablePlayPauseStop()
     }
     
     
@@ -125,20 +129,43 @@ class PomodoroVC: UIViewController {
     
     
     //MARK: -- Enable/Disable Buttons Methods
-    func enablePlayPauseButtons(){
+    func enablePlay(){
         playButton.isEnabled = true
+    }
+    
+    func enablePauseStop(){
         pauseButton.isEnabled = true
+        stopButton.isEnabled = true
     }
     
     
     // Disable all buttons
+    func disablePlayPauseStop(){
+        playButton.isEnabled = false
+        pauseButton.isEnabled = false
+        stopButton.isEnabled = false
+    }
     
     // Disable Play/Pause buttons
+    func disablePlayPause(){
+        playButton.isEnabled = false
+        pauseButton.isEnabled = false
+    }
     
     // Disable Pause/Stop buttons
+    func disablePauseStop(){
+        pauseButton.isEnabled = false
+        stopButton.isEnabled = false
+    }
     
     // Disable Play button
+    func disablePlay(){
+        playButton.isEnabled = false
+    }
     
+    func disablePause(){
+        pauseButton.isEnabled = false
+    }
     
     // MARK: -- Update Labels Methods
     private func updatePomodoroMinsAndSecsLabel(){
@@ -316,7 +343,7 @@ extension PomodoroVC: PomodoroTimeDelegate {
         mins = pomodoroTimeData
         secs = 0
         updatePomodoroMinsAndSecsLabel()
-        enablePlayPauseButtons()
+        enablePlay()
     }
     
 }
@@ -326,7 +353,7 @@ extension PomodoroVC: ShortBreakTimeDelegate {
     func passShortBreakTimeData(shortBreakTimeData: Int) {
         breakMins = shortBreakTimeData
         secs = 0
-        enablePlayPauseButtons()
+        enablePlay()
     }
     
 }
@@ -336,7 +363,7 @@ extension PomodoroVC: LongBreakTimeDelegate {
     func passLongBreakTimeData(longBreakTimeData: Int) {
         longBreakMins = longBreakTimeData
         secs = 0
-        enablePlayPauseButtons()
+        enablePlay()
     }
 
 }
@@ -345,7 +372,7 @@ extension PomodoroVC: PomodorosInSetDelegate {
     
     func passPomdorosInSetData(pomodorosInSetData: Int) {
         userSelectedPomodoroNumber = pomodorosInSetData
-        enablePlayPauseButtons()
+        enablePlay()
     }
     
 }
