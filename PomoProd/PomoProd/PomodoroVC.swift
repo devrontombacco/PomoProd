@@ -320,6 +320,7 @@ extension PomodoroVC {
             print("Pomodoro Series Completed")
             pomodoroCountLabel.text! = "Pomodoro Series Completed"
             longBreakTimer?.invalidate()
+            disablePlayPauseStop()
 
             }
             else if longBreakSecs > 0 {
