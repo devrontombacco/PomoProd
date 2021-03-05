@@ -62,7 +62,6 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var longBreakTimeRecommendedLabel: UILabel!
     @IBOutlet weak var pomodorosInSetRecommendedLabel: UILabel!
     
-    
     // MARK:-- IBOutlet - PickerViews
     @IBOutlet weak var pomodoroTimePicker: UIPickerView!
     @IBOutlet weak var shortBreakTimePicker: UIPickerView!
