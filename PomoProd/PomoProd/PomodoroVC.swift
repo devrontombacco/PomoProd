@@ -347,6 +347,7 @@ extension PomodoroVC {
 extension PomodoroVC: PomodoroTimeDelegate {
     
     func passPomodoroTimeData(pomodoroTimeData: Int) {
+        print("Pomodoro Time Data is: \(pomodoroTimeData)")
         mins = pomodoroTimeData
         secs = 0
         updatePomodoroMinsAndSecsLabel()
@@ -359,6 +360,7 @@ extension PomodoroVC: PomodoroTimeDelegate {
 extension PomodoroVC: ShortBreakTimeDelegate {
     
     func passShortBreakTimeData(shortBreakTimeData: Int) {
+        print("Short break time is: \(shortBreakTimeData)")
         breakMins = shortBreakTimeData
         secs = 0
         enablePlay()
@@ -370,6 +372,7 @@ extension PomodoroVC: ShortBreakTimeDelegate {
 extension PomodoroVC: LongBreakTimeDelegate {
     
     func passLongBreakTimeData(longBreakTimeData: Int) {
+        print("Long break time is: \(longBreakTimeData)")
         longBreakMins = longBreakTimeData
         secs = 0
         enablePlay()
@@ -381,6 +384,7 @@ extension PomodoroVC: LongBreakTimeDelegate {
 extension PomodoroVC: PomodorosInSetDelegate {
     
     func passPomdorosInSetData(pomodorosInSetData: Int) {
+        print("Pomodoro No. in series is: \(pomodorosInSetData)")
         userSelectedPomodoroNumber = pomodorosInSetData
         enablePlay()
         pomodoroSeriesReady()

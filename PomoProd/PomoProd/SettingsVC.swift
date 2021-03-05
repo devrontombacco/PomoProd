@@ -27,11 +27,10 @@ protocol PomodorosInSetDelegate {
 class SettingsVC: UIViewController {
     
     // MARK:-- Variables
-    var pomodoroTimePickerSelection: Int?
-    var shortBreakTimePickerSelection: Int?
-    var longBreakTimePickerSelection: Int?
-    var pomodorosInSetPickerSelection: Int?
-    
+    var pomodoroTimeCheck: Int? = nil
+    var shortBreakTimeCheck: Int? = nil
+    var longBreakTimeCheck: Int? = nil
+    var pomodorosInSetCheck: Int? = nil
     
     // MARK:-- Delegates
     var pomodoroTimeDelegate: PomodoroTimeDelegate!
@@ -109,10 +108,25 @@ class SettingsVC: UIViewController {
 
     // MARK:-- @IBActions
     @IBAction func exitButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        checkForNilValues()
     }
     
+    func checkForNilValues(){
+        let checkArray = [pomodoroTimeCheck, shortBreakTimeCheck, longBreakTimeCheck, pomodorosInSetCheck]
+        if (checkArray[0] != nil) && (checkArray[1] != nil) && (checkArray[2] != nil) && (checkArray[3] != nil) {
+            dismiss(animated: true, completion: nil)
+        } else {
+            alertUser()
+            }
+        }
     
+    func alertUser(){
+        let alert = UIAlertController(title: "Warning", message: "Please select a value in all four sections. NOTE: you can change these settings later", preferredStyle: .alert)
+        let alertActionButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertActionButton)
+        present(alert, animated: true, completion: nil)
+    }
+
     // MARK:-- Methods
     func configureShadows(){
         
@@ -213,16 +227,20 @@ extension SettingsVC: UIPickerViewDataSource, UIPickerViewDelegate {
         switch pickerView {
             case pomodoroTimePicker:
                  print("pomodoroTimePicker: \(Int(pomodoroTimeArray[row]))")
-                pomodoroTimeDelegate.passPomodoroTimeData(pomodoroTimeData: Int(pomodoroTimeArray[row]))
+                 pomodoroTimeCheck = (Int(pomodoroTimeArray[row]))
+                 pomodoroTimeDelegate.passPomodoroTimeData(pomodoroTimeData: Int(pomodoroTimeArray[row]))
             case shortBreakTimePicker:
                  print("shortBreakTimePicker: \(Int(shortBreakTimeArray[row]))")
-                shortBreakTimeDelegate.passShortBreakTimeData(shortBreakTimeData: Int(shortBreakTimeArray[row]))
+                 shortBreakTimeCheck = (Int(shortBreakTimeArray[row]))
+                 shortBreakTimeDelegate.passShortBreakTimeData(shortBreakTimeData: Int(shortBreakTimeArray[row]))
             case longBreakTimePicker:
                  print("longBreakTimePicker: \(Int(longBreakTimeArray[row]))")
-                longBreakTimeDelegate.passLongBreakTimeData(longBreakTimeData: Int(longBreakTimeArray[row]))
+                 longBreakTimeCheck = (Int(longBreakTimeArray[row]))
+                 longBreakTimeDelegate.passLongBreakTimeData(longBreakTimeData: Int(longBreakTimeArray[row]))
             default:
                  print("pomodorosInSetPicker: \(Int(pomodorosInSetArray[row]))")
-                pomodorosInSetDelegate.passPomdorosInSetData(pomodorosInSetData: Int(pomodorosInSetArray[row]))
+                 pomodorosInSetCheck = (Int(pomodorosInSetArray[row]))
+                 pomodorosInSetDelegate.passPomdorosInSetData(pomodorosInSetData: Int(pomodorosInSetArray[row]))
         }
     }
     
