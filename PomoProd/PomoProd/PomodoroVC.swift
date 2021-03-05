@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PomodoroVC: UIViewController {
     
@@ -32,6 +33,7 @@ class PomodoroVC: UIViewController {
     
     // MARK: -- General Variables
     var userSelectedPomodoroNumber = 0
+    var audioPlayer: AVAudioPlayer?
     
     
     // MARK:-- Outlets
@@ -231,6 +233,7 @@ extension PomodoroVC {
             
             // Stop timer when count down has finished
             pomodoroTimer?.invalidate()
+            playSound()
             startShortBreakCountDown()
         } else if secs > 0 {
             // decrement seconds by one
@@ -271,14 +274,15 @@ extension PomodoroVC {
             
             // Stop timer when count down has finished
             breakTimer?.invalidate()
+            playSound()
             
             // reset pomodoro time
             mins = 0
-            secs = 10
+            secs = 0
             
             // reset break time
             breakMins = 0
-            breakSecs = 5
+            breakSecs = 0
             
             startCountDown()
 
@@ -319,6 +323,7 @@ extension PomodoroVC {
             // Stop timer when count down has finished
             print("Pomodoro Series Completed")
             pomodoroCountLabel.text! = "Pomodoro Series Completed"
+            playSound()
             longBreakTimer?.invalidate()
             disablePlayPauseStop()
 
@@ -339,6 +344,29 @@ extension PomodoroVC {
                 updatePomodoroLongBreakMinsAndSecsLabel()
             }
             
+    }
+    
+}
+
+extension PomodoroVC {
+    
+    // MARK: -- Audio for alert
+    func playSound(){
+        
+        let path = Bundle.main.path(forResource: "introTransition", ofType: "wav")!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Couldn't load file :( ")
+        }
+
+    }
+    
+    func stopSound(){
+        audioPlayer?.stop()
     }
     
 }
