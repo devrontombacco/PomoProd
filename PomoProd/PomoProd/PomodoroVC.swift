@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PomodoroVC: UIViewController {
     
@@ -32,9 +33,13 @@ class PomodoroVC: UIViewController {
     
     // MARK: -- General Variables
     var userSelectedPomodoroNumber = 0
+<<<<<<< HEAD
     var userSelectedPomodoroMins: Int = 0
     var userSelectedShortBreakMins: Int = 0
     var userSelectedLongBreakMins: Int = 0
+=======
+    var audioPlayer: AVAudioPlayer?
+>>>>>>> d2355a6aeb32a45d3c2216e22394ff9be328b6c5
     
     
     // MARK:-- Outlets
@@ -234,6 +239,7 @@ extension PomodoroVC {
             
             // Stop timer when count down has finished
             pomodoroTimer?.invalidate()
+            playSound()
             startShortBreakCountDown()
             
         } else if pomodoroSecs > 0 {
@@ -276,6 +282,7 @@ extension PomodoroVC {
         if shortBreakMins == 0 && shortBreakSecs == 0 {
             
             // Stop timer when count down has finished
+<<<<<<< HEAD
             shortBreakTimer?.invalidate()
             
             // reset pomodoro time
@@ -285,6 +292,18 @@ extension PomodoroVC {
             // reset break time
             shortBreakMins = userSelectedShortBreakMins
             shortBreakSecs = 0
+=======
+            breakTimer?.invalidate()
+            playSound()
+            
+            // reset pomodoro time
+            mins = 0
+            secs = 0
+            
+            // reset break time
+            breakMins = 0
+            breakSecs = 0
+>>>>>>> d2355a6aeb32a45d3c2216e22394ff9be328b6c5
             
             startCountDown()
 
@@ -325,6 +344,7 @@ extension PomodoroVC {
             // Stop timer when count down has finished
             print("Pomodoro Series Completed")
             pomodoroCountLabel.text! = "Pomodoro Series Completed"
+            playSound()
             longBreakTimer?.invalidate()
             disablePlayPauseStop()
 
@@ -346,6 +366,29 @@ extension PomodoroVC {
                 updatePomodoroLongBreakMinsAndSecsLabel()
             }
     }
+}
+
+extension PomodoroVC {
+    
+    // MARK: -- Audio for alert
+    func playSound(){
+        
+        let path = Bundle.main.path(forResource: "introTransition", ofType: "wav")!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Couldn't load file :( ")
+        }
+
+    }
+    
+    func stopSound(){
+        audioPlayer?.stop()
+    }
+    
 }
 
 
