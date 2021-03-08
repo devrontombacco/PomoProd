@@ -79,6 +79,7 @@ class PomodoroVC: UIViewController {
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         stopCountDown()
         disablePlayPauseStop()
+        resetCounts()
     }
     
     
@@ -97,7 +98,7 @@ class PomodoroVC: UIViewController {
         pomodoroTimer?.invalidate()
         shortBreakTimer?.invalidate()
         longBreakTimer?.invalidate()
-        resetCounts()
+        resetBreakCountOnPause()
         pomodoroCountLabel!.text = "Timer Paused"
     }
     
@@ -105,12 +106,13 @@ class PomodoroVC: UIViewController {
         pomodoroTimer?.invalidate()
         shortBreakTimer?.invalidate()
         longBreakTimer?.invalidate()
-        resetTimeValues()
+        resetAllTimeValues()
         pomodoroCountLabel!.text = "Pomodoro STOPPED"
         updatePomodoroMinsAndSecsLabel()
     }
     
-    func resetTimeValues(){
+    // MARK: -- Reset Methods
+    func resetAllTimeValues(){
         // reset all timers to zero
         pomodoroMins = 0
         pomodoroSecs = 0
@@ -120,7 +122,7 @@ class PomodoroVC: UIViewController {
         longBreakSecs = 0
     }
     
-    func resetCounts(){
+    func resetBreakCountOnPause(){
         pomodoroCount -= 1
         print("The current pomodoro is: \(pomodoroCount)")
         
@@ -130,6 +132,36 @@ class PomodoroVC: UIViewController {
             shortBreakCount -= 1
         }
         print("The next break is: \(shortBreakCount)")
+    }
+    
+    
+    func resetCounts(){
+        pomodoroCount = 0
+        shortBreakCount = 0
+    }
+    
+    func resetPomodoroMins() {
+        pomodoroMins = userSelectedPomodoroMins
+        pomodoroSecs = 0
+    }
+    
+    func resetShortBreakMins(){
+        shortBreakMins = userSelectedShortBreakMins
+        shortBreakSecs = 0
+    }
+    
+    func resetLongBreakMins(){
+        longBreakMins = userSelectedLongBreakMins
+        longBreakSecs = 0
+    }
+    
+    func resetPomodorosAndShortBreaks(){
+        pomodoroMins = userSelectedPomodoroMins
+        pomodoroSecs = 0
+        shortBreakMins = userSelectedShortBreakMins
+        shortBreakSecs = 0
+        longBreakMins = userSelectedLongBreakMins
+        longBreakSecs = 0
     }
     
     
@@ -172,16 +204,19 @@ class PomodoroVC: UIViewController {
         pauseButton.isEnabled = false
     }
     
+    
     // MARK: -- Update Labels Methods
     private func updatePomodoroMinsAndSecsLabel(){
         minutesLabel.text = "\(pomodoroMins)"
         secondsLabel.text = "\(pomodoroSecs)"
     }
     
+    
     private func updatePomodoroShortBreakMinsAndSecsLabel(){
         minutesLabel.text = "\(shortBreakMins)"
         secondsLabel.text = "\(shortBreakSecs)"
     }
+    
     
     private func updatePomodoroLongBreakMinsAndSecsLabel(){
         minutesLabel.text = "\(longBreakMins)"
@@ -219,9 +254,8 @@ extension PomodoroVC {
     // MARK: Pomodoro Timer Function
     func startCountDown(){
         
-        // reset break time
-        shortBreakMins = userSelectedShortBreakMins
-        shortBreakSecs = 0
+        resetShortBreakMins()
+        resetLongBreakMins()
         
         pomodoroCount += 1
         if pomodoroCount <= userSelectedPomodoroNumber {
@@ -287,8 +321,7 @@ extension PomodoroVC {
             playSound()
             
             // reset pomodoro time
-            pomodoroMins = userSelectedPomodoroMins
-            pomodoroSecs = 0
+            resetPomodoroMins()
 
             startCountDown()
             
@@ -332,7 +365,7 @@ extension PomodoroVC {
             playSound()
             longBreakTimer?.invalidate()
             disablePlayPauseStop()
-
+            resetCounts()
             }
             else if longBreakSecs > 0 {
                 // decrement seconds by one
@@ -381,8 +414,7 @@ extension PomodoroVC: PomodoroTimeDelegate {
     
     func passPomodoroTimeData(pomodoroTimeData: Int) {
         userSelectedPomodoroMins = pomodoroTimeData
-        pomodoroMins = userSelectedPomodoroMins
-        pomodoroSecs = 0
+        resetPomodoroMins()
         updatePomodoroMinsAndSecsLabel()
         enablePlay()
         pomodoroSeriesReady()
@@ -394,8 +426,7 @@ extension PomodoroVC: ShortBreakTimeDelegate {
     
     func passShortBreakTimeData(shortBreakTimeData: Int) {
         userSelectedShortBreakMins = shortBreakTimeData
-        shortBreakMins = userSelectedShortBreakMins
-        shortBreakSecs = 0
+        resetShortBreakMins()
         enablePlay()
         pomodoroSeriesReady()
     }
@@ -406,8 +437,7 @@ extension PomodoroVC: LongBreakTimeDelegate {
     
     func passLongBreakTimeData(longBreakTimeData: Int) {
         userSelectedLongBreakMins = longBreakTimeData
-        longBreakMins = userSelectedLongBreakMins
-        longBreakSecs = 0
+        resetLongBreakMins()
         enablePlay()
         pomodoroSeriesReady()
     }
