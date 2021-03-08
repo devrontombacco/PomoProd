@@ -40,6 +40,7 @@ class PomodoroVC: UIViewController {
     
     
     // MARK:-- Outlets
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
@@ -65,13 +66,14 @@ class PomodoroVC: UIViewController {
     // MARK:-- IBActions
     @IBAction func playButtonTapped(_ sender: UIButton) {
         startCountDown()
-        disablePlay()
+        disablePlayAndSettings()
         enableStop()
     }
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         stopCountDown()
         disablePlayStop()
+        enableSettings()
         resetCounts()
     }
     
@@ -144,11 +146,16 @@ class PomodoroVC: UIViewController {
     func enableStop(){
         stopButton.isEnabled = true
     }
+    
+    func enableSettings(){
+        settingsButton.isEnabled = true
+    }
 
     
     // Disable Play button
-    func disablePlay(){
+    func disablePlayAndSettings(){
         playButton.isEnabled = false
+        settingsButton.isEnabled = false
     }
     
     // Disable Stop button
@@ -156,7 +163,7 @@ class PomodoroVC: UIViewController {
         stopButton.isEnabled = false
     }
     
-    // Disable all buttons
+    // Disable play and stop buttons
     func disablePlayStop(){
         playButton.isEnabled = false
         stopButton.isEnabled = false
