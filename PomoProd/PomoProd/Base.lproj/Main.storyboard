@@ -56,9 +56,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1x1-5v-5Cr" userLabel="SideBar">
                                 <rect key="frame" x="340" y="0.0" width="74" height="896"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYX-1j-5FW" userLabel="SecondTimeLabel">
-                                        <rect key="frame" x="15" y="435" width="44" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYX-1j-5FW" userLabel="SecondTimeLabel">
+                                        <rect key="frame" x="15" y="430.5" width="44" height="46"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="39"/>
                                         <color key="textColor" red="0.050980392159999999" green="1" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -74,9 +73,8 @@
                                             <segue destination="VAc-Pf-sQe" kind="presentation" identifier="PresentSettingsVCSegue" modalPresentationStyle="fullScreen" id="Vtx-RS-a0H"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ui-11-hJt">
-                                        <rect key="frame" x="21" y="696" width="32" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ui-11-hJt">
+                                        <rect key="frame" x="21" y="691.5" width="39.5" height="36.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal">
@@ -88,9 +86,11 @@
                                             <action selector="stopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YSM-R3-B98"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vg-w3-pvD">
-                                        <rect key="frame" x="21" y="564" width="36" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vg-w3-pvD">
+                                        <rect key="frame" x="21" y="636.5" width="36" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="43u-Qd-Wrm"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal">
@@ -101,22 +101,19 @@
                                             <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLA-CN-Qbi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4v-lP-Jbu">
-                                        <rect key="frame" x="23" y="633" width="28" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="pause.fill" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gt6-9c-F05"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="7Ui-11-hJt" firstAttribute="top" secondItem="6vg-w3-pvD" secondAttribute="bottom" constant="22" id="31b-1a-iF5" userLabel="Stop Button.top = Play Button.bottom + 25"/>
+                                    <constraint firstItem="6vg-w3-pvD" firstAttribute="top" secondItem="OYX-1j-5FW" secondAttribute="bottom" constant="160" id="Cpt-ef-cq8"/>
+                                    <constraint firstItem="7Ui-11-hJt" firstAttribute="leading" secondItem="1x1-5v-5Cr" secondAttribute="leading" constant="21" id="HrL-hO-pkX"/>
                                     <constraint firstAttribute="width" constant="74" id="Hvp-tG-6GA"/>
+                                    <constraint firstItem="OYX-1j-5FW" firstAttribute="leading" secondItem="1x1-5v-5Cr" secondAttribute="leading" constant="15" id="b8a-Qd-48Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Ui-11-hJt" secondAttribute="bottom" constant="168" id="dj9-eh-O2c"/>
+                                    <constraint firstItem="6vg-w3-pvD" firstAttribute="leading" secondItem="1x1-5v-5Cr" secondAttribute="leading" constant="21" id="hh6-AX-pTD"/>
+                                    <constraint firstAttribute="trailing" secondItem="OYX-1j-5FW" secondAttribute="trailing" constant="15" id="mlm-vc-RFN"/>
+                                    <constraint firstAttribute="trailing" secondItem="6vg-w3-pvD" secondAttribute="trailing" constant="17" id="qfC-67-I7s"/>
+                                    <constraint firstItem="6vg-w3-pvD" firstAttribute="leading" secondItem="1x1-5v-5Cr" secondAttribute="leading" constant="21" id="sYm-c3-u98"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -138,7 +135,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="minutesLabel" destination="HL3-A2-gN9" id="SYR-gW-GNf"/>
-                        <outlet property="pauseButton" destination="w4v-lP-Jbu" id="L0i-Um-64X"/>
                         <outlet property="playButton" destination="6vg-w3-pvD" id="XoN-hH-bJF"/>
                         <outlet property="pomodoroCountLabel" destination="eIR-V5-h02" id="GVg-wZ-0TE"/>
                         <outlet property="secondsLabel" destination="OYX-1j-5FW" id="54S-4B-oJp"/>
@@ -559,7 +555,6 @@
         <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="square.fill" catalog="system" width="128" height="114"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">

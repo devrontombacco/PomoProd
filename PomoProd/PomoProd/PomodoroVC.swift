@@ -43,14 +43,13 @@ class PomodoroVC: UIViewController {
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var pomodoroCountLabel: UILabel!
     
     override func viewDidLoad() {
         pomodoroCountLabel!.text = "Set timer and breaks"
         highlightCountLabel()
-        disablePlayPauseStop()
+        disablePlayStop()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,18 +66,12 @@ class PomodoroVC: UIViewController {
     @IBAction func playButtonTapped(_ sender: UIButton) {
         startCountDown()
         disablePlay()
-        enablePauseStop()
-    }
-    
-    @IBAction func pauseButtonTapped(_ sender: UIButton) {
-        disablePause()
-        pauseCountDown()
-        enablePlay()
+        enableStop()
     }
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         stopCountDown()
-        disablePlayPauseStop()
+        disablePlayStop()
         resetCounts()
     }
     
@@ -86,21 +79,12 @@ class PomodoroVC: UIViewController {
     
     // MARK:-- UI Methods
     func highlightCountLabel(){
-        
         pomodoroCountLabel.layer.borderWidth = 1
         pomodoroCountLabel.layer.borderColor = K.color.highlighted
-        
     }
     
     
     // MARK: -- All Timer Methods
-    func pauseCountDown(){
-        pomodoroTimer?.invalidate()
-        shortBreakTimer?.invalidate()
-        longBreakTimer?.invalidate()
-        resetBreakCountOnPause()
-        pomodoroCountLabel!.text = "Timer Paused"
-    }
     
     func stopCountDown(){
         pomodoroTimer?.invalidate()
@@ -121,19 +105,6 @@ class PomodoroVC: UIViewController {
         longBreakMins = 0
         longBreakSecs = 0
     }
-    
-    func resetBreakCountOnPause(){
-        pomodoroCount -= 1
-        print("The current pomodoro is: \(pomodoroCount)")
-        
-        if shortBreakCount == 0 {
-            shortBreakCount = 0
-        } else {
-            shortBreakCount -= 1
-        }
-        print("The next break is: \(shortBreakCount)")
-    }
-    
     
     func resetCounts(){
         pomodoroCount = 0
@@ -170,40 +141,27 @@ class PomodoroVC: UIViewController {
         playButton.isEnabled = true
     }
     
-    func enablePauseStop(){
-        pauseButton.isEnabled = true
+    func enableStop(){
         stopButton.isEnabled = true
     }
-    
-    
-    // Disable all buttons
-    func disablePlayPauseStop(){
-        playButton.isEnabled = false
-        pauseButton.isEnabled = false
-        stopButton.isEnabled = false
-    }
-    
-    // Disable Play/Pause buttons
-    func disablePlayPause(){
-        playButton.isEnabled = false
-        pauseButton.isEnabled = false
-    }
-    
-    // Disable Pause/Stop buttons
-    func disablePauseStop(){
-        pauseButton.isEnabled = false
-        stopButton.isEnabled = false
-    }
+
     
     // Disable Play button
     func disablePlay(){
         playButton.isEnabled = false
     }
     
-    func disablePause(){
-        pauseButton.isEnabled = false
+    // Disable Stop button
+    func disableStop(){
+        stopButton.isEnabled = false
     }
     
+    // Disable all buttons
+    func disablePlayStop(){
+        playButton.isEnabled = false
+        stopButton.isEnabled = false
+    }
+
     
     // MARK: -- Update Labels Methods
     private func updatePomodoroMinsAndSecsLabel(){
@@ -364,7 +322,7 @@ extension PomodoroVC {
             pomodoroCountLabel.text! = "Pomodoro Series Completed"
             playSound()
             longBreakTimer?.invalidate()
-            disablePlayPauseStop()
+            disablePlayStop()
             resetCounts()
             }
             else if longBreakSecs > 0 {
