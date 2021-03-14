@@ -46,6 +46,7 @@ class SettingsVC: UIViewController {
     
     
     // MARK:-- IBOutlets - Views
+    @IBOutlet weak var instrutionsView: UIView!
     @IBOutlet weak var pomodoroTimeView: UIView!
     @IBOutlet weak var shortBreakTimeView: UIView!
     @IBOutlet weak var longBreakTimeView: UIView!
@@ -53,6 +54,7 @@ class SettingsVC: UIViewController {
     
     
     // MARK:-- IBOutlet - Labels
+    @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var pomodoroTimeLabel: UILabel!
     @IBOutlet weak var shortBreakMinsLabel: UILabel!
     @IBOutlet weak var longBreakTimeLabel: UILabel!
@@ -81,11 +83,13 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         
         // Add Corner Radius to views
-        InstructionsButtonOutlet.layer.cornerRadius = 25
+        
+        instrutionsView.layer.cornerRadius = 25
         pomodoroTimeView.layer.cornerRadius = 25
         shortBreakTimeView.layer.cornerRadius = 25
         longBreakTimeView.layer.cornerRadius = 25
         pomodorosInSetView.layer.cornerRadius = 25
+
         
         // Add shadows to views
         configureShadows()
@@ -129,11 +133,6 @@ class SettingsVC: UIViewController {
     // MARK:-- Methods
     func configureShadows(){
         
-        InstructionsButtonOutlet.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
-        InstructionsButtonOutlet.layer.shadowOpacity = 0.16
-        InstructionsButtonOutlet.layer.shadowOffset = .init(width: 10, height: 10)
-        InstructionsButtonOutlet.layer.shadowRadius = 4
-        
         pomodoroTimeView.layer.shadowColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 16.0).cgColor
         pomodoroTimeView.layer.shadowOpacity = 0.16
         pomodoroTimeView.layer.shadowOffset = .init(width: 10, height: 10)
@@ -162,8 +161,8 @@ class SettingsVC: UIViewController {
     
     func configureBorders(){
         
-        InstructionsButtonOutlet.layer.borderWidth = 1
-        InstructionsButtonOutlet.layer.borderColor = K.color.highlighted
+        instrutionsView.layer.borderWidth = 1
+        instrutionsView.layer.borderColor = K.color.highlighted
         
         pomodoroTimeView.layer.borderWidth = 1
         pomodoroTimeView.layer.borderColor = K.color.highlighted
