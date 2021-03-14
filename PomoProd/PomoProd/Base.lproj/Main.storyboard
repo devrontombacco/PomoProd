@@ -191,7 +191,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DPu-DR-qLb">
-                                        <rect key="frame" x="42" y="86" width="337" height="789"/>
+                                        <rect key="frame" x="42" y="54" width="337" height="789"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szI-L9-vjN">
                                                 <rect key="frame" x="312" y="0.0" width="25" height="24"/>
@@ -215,6 +215,9 @@
                                                             <imageReference key="image" image="info.circle.fill" catalog="system" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="KNx-Uh-CH1" kind="presentation" modalPresentationStyle="fullScreen" id="aRT-Wk-MxE"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6U-D4-y3C" userLabel="Instructions">
                                                         <rect key="frame" x="30" y="51" width="99" height="21"/>
@@ -374,7 +377,7 @@
                                 <viewLayoutGuide key="safeArea" id="RkQ-rc-Zb6"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.70196078429999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="DPu-DR-qLb" firstAttribute="top" secondItem="RkQ-rc-Zb6" secondAttribute="top" constant="42" id="F5l-w9-D8c"/>
+                                    <constraint firstItem="DPu-DR-qLb" firstAttribute="top" secondItem="RkQ-rc-Zb6" secondAttribute="top" constant="10" id="F5l-w9-D8c"/>
                                     <constraint firstItem="DPu-DR-qLb" firstAttribute="centerX" secondItem="0k5-F7-ZFE" secondAttribute="centerX" id="vl9-wI-iOj"/>
                                 </constraints>
                             </view>
@@ -571,6 +574,7 @@
                             <constraint firstAttribute="bottom" secondItem="Skn-Ji-LhZ" secondAttribute="bottom" id="pKr-97-e61"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4eU-Pt-qXk"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="exitInfoButton" destination="eAg-hU-m4q" id="PSq-KR-tNm"/>
@@ -589,7 +593,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBY-we-4BV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2723" y="68"/>
+            <point key="canvasLocation" x="2525" y="68"/>
         </scene>
     </scenes>
     <resources>
