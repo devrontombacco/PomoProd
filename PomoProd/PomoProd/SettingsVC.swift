@@ -56,13 +56,10 @@ class SettingsVC: UIViewController {
     // MARK:-- IBOutlet - Labels
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var pomodoroTimeLabel: UILabel!
-    @IBOutlet weak var shortBreakMinsLabel: UILabel!
+    @IBOutlet weak var shortBreakTimeLabel: UILabel!
     @IBOutlet weak var longBreakTimeLabel: UILabel!
     @IBOutlet weak var pomodorosInSetLabel: UILabel!
-    @IBOutlet weak var pomodoroTimeRecommendedLabel: UILabel!
-    @IBOutlet weak var shortBreakTimeRecommendedLabel: UILabel!
-    @IBOutlet weak var longBreakTimeRecommendedLabel: UILabel!
-    @IBOutlet weak var pomodorosInSetRecommendedLabel: UILabel!
+    
     
     // MARK:-- IBOutlet - PickerViews
     @IBOutlet weak var pomodoroTimePicker: UIPickerView!
@@ -97,6 +94,9 @@ class SettingsVC: UIViewController {
         // Add highlighted border to views
         configureBorders()
         
+        // Add Instructions Button's UI
+        configureInstructionsButton()
+        
         // Configure Picker Views
         pomodoroTimePicker.delegate = self
         pomodoroTimePicker.dataSource = self
@@ -107,6 +107,7 @@ class SettingsVC: UIViewController {
         pomodorosInSetPicker.delegate = self
         pomodorosInSetPicker.dataSource = self
 
+        
     }
 
     // MARK:-- @IBActions
