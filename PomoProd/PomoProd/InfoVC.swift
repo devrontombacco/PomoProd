@@ -10,10 +10,9 @@ import UIKit
 class InfoVC: UIViewController {
 
     // MARK:-- Outlets
-    @IBOutlet weak var exitInfoButton: UIButton!
+    @IBOutlet weak var exitButton: UIButton!
     
     // MARK:-- Views
-    @IBOutlet weak var instructionsContainerView: UIView!
     @IBOutlet weak var instructionsTitlePanel: UIView!
     @IBOutlet weak var pomodoroPanel: UIView!
     @IBOutlet weak var shortBreakPanel: UIView!
@@ -40,7 +39,6 @@ class InfoVC: UIViewController {
     // MARK:-- Configuration Methods
     
     func configureCornerRadius(){
-        instructionsContainerView.layer.cornerRadius = 25
         instructionsTitlePanel.layer.cornerRadius = 25
         pomodoroPanel.layer.cornerRadius = 25
         shortBreakPanel.layer.cornerRadius = 25
@@ -74,7 +72,7 @@ class InfoVC: UIViewController {
     
     // MARK: -- IBActions
     
-    @IBAction func extInfoButtonTapped(_ sender: UIButton) {
+    @IBAction func exitButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
